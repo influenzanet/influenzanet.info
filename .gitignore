@@ -1,0 +1,70 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/tmp
+/out-tsc
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.angular
+.adminjs/
+
+docker/production/.env
+dist/docker/.env
+
+#####################
+# Ignore static data
+# ###################
+
+# Ignore Data directory
+apps/server/src/assets/data/**
+!apps/server/src/assets/data/**/
+
+dist/apps/server/assets/data/**
+!dist/apps/server/assets/data/**/
+
+dist/data/**
+!dist/data/**/
+
+# Ignore Upload directory
+apps/server/src/assets/upload/**
+!apps/server/src/assets/upload/**/
+
+dist/apps/server/assets/upload/**
+!dist/apps/server/assets/upload/**/
+
+# Add Mysql dump dir
+!dist/data/mysql/
+!dist/data/mysql/**
+!dist/data/mysql/**/
+
+# Mantain .gitkeep files
+!**/.gitkeep
+

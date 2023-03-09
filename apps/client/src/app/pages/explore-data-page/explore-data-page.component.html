@@ -1,0 +1,38 @@
+<section class="about-section">
+  <p>In the page "explore the data", the number of active participants, the number of ILI and COVID-19 onsets and
+    the calculated incidence as well as the number of people who seeked healthcare are listed for each week.
+  </p>
+  <p>The incidence for Influenza-like Illness (ILI) can be downloaded as CSV files (importable into Excel).</p>
+</section>
+
+<ng-container *ngIf="(countryList$ | async) as countryList; else loader">
+  <section class="country-links">
+    <p class="title">Countries participating in InfluenzaNet:</p>
+    <a class="link country-link"
+      *ngFor="let country of countryList; trackBy: trackCountries"
+      (click)="scrollTo(country.name)"
+    >{{country.name}}</a>
+  </section>
+
+  <section>
+    <div
+      class="country"
+      *ngFor="let country of countryList; trackBy: trackCountries"
+      [id]="country.name"
+    >
+      <div class="subtitle">{{ country.name }}</div>
+      <platform-data-section
+        *ngFor="let platform of country.platforms; trackBy: trackPlatforms"
+        [platform]="platform"
+      ></platform-data-section>
+    </div>
+  </section>
+</ng-container>
+
+<ng-template #loader>
+  <section class="loader-container">
+    <span>Loading Data</span>
+    <mat-progress-bar [color]="'accent'" mode="indeterminate"></mat-progress-bar>
+  </section>
+</ng-template>
+

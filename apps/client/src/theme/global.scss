@@ -1,0 +1,152 @@
+@import "theme-variables";
+/*
+* LAYOUT
+*/
+.space-rx{
+  padding-right:10vw;
+  @media all and (max-width: $mobile-space-break){ padding-right: 1rem; }
+}
+.space-lx{
+  padding-left:10vw;
+  @media all and (max-width: $mobile-space-break){ padding-left: 1rem; }
+}
+.space-x{
+  @extend .space-rx;
+  @extend .space-lx;
+}
+
+.space-Y21{
+  @extend .t-3;
+  @extend .b-2;
+}
+
+
+/*
+* TYPOGRAPHY
+*/
+
+.link{
+  cursor:pointer;
+}
+
+a.link{ color:$color-accent; }
+
+.anchor{
+  @extend .link;
+  text-decoration: underline;
+}
+
+/*
+* PARTIALS
+*/
+.button{
+  @extend .font-s;
+  @extend .letter-spacing-s;
+  @extend .nunito;
+  font-weight: bold;
+
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button-accent{
+  @extend .button;
+  background-color: $color-accent;
+  border: solid 2px $color-accent;
+  color: white;
+
+  &:hover {
+    opacity: 0.95;
+  }
+  &.inverted{
+    border-color: $color-accent;
+    background-color: white;
+    color: $color-accent;
+  }
+
+  &.small{
+    @extend .nunito;
+    @extend .inverted;
+    padding: 0.0.5rem 0.25em;
+  }
+}
+
+
+.about-section{
+  @extend .space-x;
+  @extend .b-4;
+}
+
+.subtitle{
+  @extend .font-xl;
+  @extend .color-main;
+  font-weight: 500;
+}
+
+
+.mobile-hidden{
+  @media all and (max-width: $mobile-space-break){ display: none; }
+}
+.desktop-hidden{
+  @media all and (min-width: $mobile-space-break){ display: none; }
+}
+
+// FORMS
+.mat-form-field-text{
+  font-size:0.7rem;
+  line-height: 1.25rem;
+}
+
+mat-form-field{
+  @extend .r-0;
+  @extend .mat-form-field-text;
+
+  .mdc-text-field--focused{
+    &, .mdc-notched-outline *{
+      border-color: $color-base-accent-dark!important;
+      border-width: 1px!important;
+    }
+  }
+  .mdc-notched-outline{
+    & , & > * { border-color: rgba(0,0,0,0)!important; }
+  }
+  .mat-mdc-select-arrow{
+    color: $color-base-accent-dark!important;
+  }
+
+  .mat-mdc-text-field-wrapper.mdc-text-field--outlined{
+    background: white;
+    border-radius: 5px;
+
+    .mat-mdc-form-field-infix{
+      @extend .mat-form-field-text;
+      min-height: auto;
+      width: auto;
+      min-width: 3rem;
+      padding: 0;
+    }
+  }
+
+  .mat-mdc-select-value{
+    padding:0.2rem 0.45rem 0.2rem 0.2rem;
+  }
+
+  ::ng-deep span{
+    text-transform: capitalize!important;
+  }
+
+}
+.cdk-overlay-container{
+  .cdk-overlay-pane{ width: auto!important; }
+
+  .mat-mdc-option {
+    @extend .mat-form-field-text;
+    & > * {
+      font-size: 0.7rem!important;
+    }
+  }
+  .mdc-list-item--selected .mdc-list-item__primary-text{
+    color: $color-accent!important;
+  }
+}

@@ -1,0 +1,105 @@
+@use 'sass:math';
+@import "theme-variables";
+@import "global";
+
+
+:host{
+  display:flex;
+  position:sticky;
+  top :0;
+  z-index: 100;
+
+  .is-sticky{background-color: white;}
+
+  nav{
+    $logo-height: 3;
+    width: 100%;
+
+    .nav-content {
+      @extend .space-x;
+      @extend .t-3;
+      @extend .b-0;
+      display:flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      .active{
+        @extend .color-accent;
+      }
+
+      .left{
+        .logo{
+          height: $logo-height+rem;
+        }
+        z-index:100;
+      }
+
+      .right{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1 1 1px;
+
+        & > * {
+          @extend .r-3;
+          @extend .font-s;
+          @extend .nunito;
+          margin: math.div($logo-height, 3)+rem 0;
+          line-height: math.div($logo-height, 3)+rem;
+        }
+
+
+        @media all and (max-width: $mobile-menu-break) {
+          display: none!important;
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 10;
+          background: rgba(255, 255, 255, 0.95);
+
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          &> * {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            padding-right:0;
+            font-size: 1.3rem;
+            //line-height: 4rem;
+            letter-spacing: 3px;
+            //padding: 1rem;
+          }
+
+          &.is-open {
+            display: flex!important;
+          }
+        }
+
+      }
+
+      .hamburger {
+        @extend .font-xxl;
+        @extend .color-main;
+        @extend .link;
+        display: none;
+        //display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1 1 1px;
+        z-index: 100;
+        cursor:pointer;
+        margin-bottom: math.div($logo-height, 8)+rem ;
+        @media all and (max-width: $mobile-menu-break) { display:flex; }
+
+      }
+
+    }
+  }
+
+}

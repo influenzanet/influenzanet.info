@@ -1,0 +1,69 @@
+@import "theme-variables";
+@import "global";
+
+::ng-deep .swiper-wrapper{
+  display:inline-flex;
+}
+.country{
+  //@extend .tb-2;
+  @extend .tb-3;
+  @extend .bg-base-accent;
+
+  &:nth-child(2n){ @extend .bg-base-light; }
+  &:last-child{ @extend .b-6; }
+
+  .subtitle{ @extend .space-x; }
+}
+
+.country-links{
+  @extend .space-x;
+  @extend .b-3;
+  flex-wrap: nowrap;
+
+  .title{ @extend .b-1; }
+
+  .country-link{
+    @extend .r-0;
+    @extend .l-0;
+    @extend .mr-0;
+    @extend .mb-0;
+
+    text-decoration: underline;
+    display: inline-flex;
+
+    @media all and (max-width: $mobile-space-break){
+      text-decoration: none!important;
+      border-radius: 5px;
+      border: solid 1px;
+
+      border-color: $color-accent;
+      background-color: white;
+      color: $color-accent;
+
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+platform-data-section{ @extend .t-1; }
+
+.loader-container{
+  @extend .space-x;
+  @extend .t-3;
+  @extend .b-4;
+  @extend .bg-base-accent;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    @extend .color-main;
+    @extend .font-xl;
+    @extend .b-1;
+
+    font-weight: bold;
+  }
+}

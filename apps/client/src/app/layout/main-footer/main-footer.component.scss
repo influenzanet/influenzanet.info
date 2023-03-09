@@ -1,0 +1,107 @@
+@import "theme-variables";
+@import 'global';
+
+:host{
+  @extend .space-x;
+  @extend .t-4;
+  @extend .b-2;
+  @extend .font-xxs;
+  background-color: $color-main;
+  color: white;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  .footer-row{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @media all and (max-width: $mobile-break){
+      flex-direction: column;
+      text-align: center!important;
+      align-items: center!important;
+    }
+  }
+  .footer-column{
+    @extend .footer-row;
+    flex-direction: column;
+  }
+
+  .top{
+    @extend .b-3;
+    @extend .footer-column;
+
+    @media all and (max-width: $mobile-break){
+      text-align: center;
+      align-items: center;
+    }
+
+    a { color:white; }
+    .logo{ height: 2.5rem; }
+
+    .top-content{
+      @extend .footer-row;
+      width: 100%;
+
+      .social-list *:hover{ @extend .color-accent; }
+
+      .top-title{
+        @extend .font-xs;
+        font-weight: bold;
+      }
+
+      & > * {
+        @extend .t-1;
+        flex: 1 1 1px;
+        @media all and (max-width: $mobile-break){
+          padding-top: ($space-small-value*2)+$space-small-unit ;
+        }
+      }
+
+      .top-right{ display: flex; }
+
+      .influenza-net{
+        @extend .footer-row;
+        @extend .font-xs;
+        flex: 2 1 1px;
+        padding-left: 0;
+      }
+      .contact{
+        @extend .mr-1;
+        @extend .footer-column;
+        align-items: flex-end;
+        flex: 1 1 1px;
+      }
+      .social{
+        @extend .footer-column;
+        align-items: flex-end;
+        flex: 1 1 1px;
+
+        .social-list{
+          @extend .footer-row;
+          & > *:not(:last-child) { @extend .r-0; }
+        }
+      }
+
+    }
+  }
+  .bottom{
+    @extend .t-2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    @media all and (max-width: $mobile-break){
+      padding-top:0;
+      flex-direction: column;
+    }
+
+    border-top: solid 2px rgba(255,255,255, 0.5);
+    @media all and (max-width: $mobile-break){
+      border-top: none;
+    }
+  }
+}

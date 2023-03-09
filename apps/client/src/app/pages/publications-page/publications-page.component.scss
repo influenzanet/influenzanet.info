@@ -1,0 +1,35 @@
+@import "theme-variables";
+@import "global";
+
+:host{
+  @extend .b-4;
+
+  .single-publication{
+    @extend .tb-1;
+    display: grid;
+    grid-template-columns: 3rem 5fr;
+
+    .icon{
+      @extend .subtitle;
+      @extend .r-3;
+      @extend .font-xl;
+      @extend .color-accent;
+    }
+
+    .content{
+      @extend .b-1;
+      margin-top: 0.5rem;
+
+      & > * {
+        @extend .font-m;
+        //@extend .b-1;
+      }
+      .publication-title{
+        @extend .color-main;
+        font-weight: bold;
+      }
+    }
+  }
+
+
+}

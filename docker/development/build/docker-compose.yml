@@ -1,0 +1,24 @@
+version: '3.7'
+
+volumes:
+  node_modules:
+
+x-options: &options
+  logging:
+    driver: "json-file"
+    options:
+      max-file: "5"
+      max-size: "10m"
+  restart: "no"
+  stdin_open: true
+  tty: true
+
+services:
+  node-build:
+    image: node:16.13.0
+    working_dir: /app
+    volumes:
+      - ../../../:/app
+      - node_modules:/app/node_modules
+    entrypoint: "npm run build --prod"
+    <<: *options

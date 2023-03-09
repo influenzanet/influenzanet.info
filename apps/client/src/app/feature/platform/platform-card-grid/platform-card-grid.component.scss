@@ -1,0 +1,90 @@
+@use 'sass:math';
+@import "theme-variables";
+@import "global";
+
+
+:host{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: $space-small-value+$space-small-unit;
+  row-gap: $space-small-value+$space-small-unit;
+
+
+  @media all and (max-width: ($mobile-space-break-value*1.5)+$mobile-space-break-unit) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media all and (max-width: $mobile-space-break-value+$mobile-space-break-unit) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media all and (max-width: math.div($mobile-space-break-value, 1.5)+$mobile-space-break-unit) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media all and (max-width: math.div($mobile-space-break-value, 2)+$mobile-space-break-unit) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+
+  .publication-card{
+    @extend .b-2;
+    display:flex;
+    flex-direction: column;
+
+    .item-logo-container{
+      width: 100%;
+
+      .item-logo-ratio{
+        @extend .bg-base-accent;
+        width: 100%;
+        position:relative;
+        padding-bottom: 60%;
+
+        & > *{
+          //@extend .tb-1;
+          //@extend .lr-1;
+
+          position: absolute;
+          top:0; right:0; bottom:0; left:0;
+          width: 100%;
+          height: 100%;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+
+          .item-logo{
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+              width: 100%;
+              height: auto;
+            }
+          }
+
+
+        }
+      }
+    }
+    .item-title{
+      @extend .font-l;
+      @extend .t-1;
+      font-weight:400;
+    }
+    .item-country{
+      @extend .color-base-accent-dark;
+      @extend .font-xs;
+      font-weight:400;
+
+    }
+    .item-description-short{
+      @extend .b-1;
+      @extend .font-xs;
+      font-weight:400;
+    }
+  }
+}

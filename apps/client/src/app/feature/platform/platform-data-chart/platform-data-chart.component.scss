@@ -1,0 +1,87 @@
+@import "theme-variables";
+@import "global";
+
+:host {
+  position: relative;
+  z-index:10;
+
+  .filters{
+    @extend .b-1;
+    display:flex;
+    @media all and (max-width: $mobile-space-break){ justify-content: center;}
+  }
+
+  .chart-container{
+    position:relative;
+    padding-bottom: 60%;
+
+    .chart, .nodata{
+      @extend .tb-0;
+      @extend .lr-0;
+      position:absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      background: white;
+      //box-shadow: 0 0 4px 5px rgba(0,0,0,0.01)
+      @media all and (max-width: $mobile-space-break){ padding-left:0; padding-right: 0; padding-bottom: 0;}
+
+    }
+    .nodata{
+      @extend .color-base-accent-dark;
+      //border: solid 1px #efefef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  ::ng-deep .c3{
+    height: 100%; width: 100%;
+    max-height:100% !important;
+    svg{
+      .domain{ opacity: 0; }
+
+      .c3-line{ stroke-width:2px; }
+
+      path.c3-area-min {
+        opacity:1!important;
+        fill: #fff!important;
+      }
+      path.c3-area-max {
+        fill: map-get($colors, 'base-accent-dark')!important;
+        //fill:  map-get($colors, 'accent')!important;
+      }
+      path.c3-line-avg, path.c3-line-value{
+        opacity:1!important;
+        stroke: map-get($colors, 'base-accent-dark')!important;
+      }
+      .c3-circles-avg > *, .c3-circles-value > *{ //fill: rgb(255,255,255)!important;
+        fill: map-get($colors, 'base-accent-dark')!important;
+        stroke: map-get($colors, 'base-accent-dark')!important;
+      }
+      .c3-line-min, .c3-line-max, .c3-circles-min > *, .c3-circles-max > *{
+        fill: none!important;
+        stroke: none!important;
+      }
+
+      .tick{
+        text{
+          fill: map-get($colors, 'base')!important;
+        }
+        line {
+          fill: none;
+          stroke: none!important;
+        }
+      }
+    }
+
+  }
+
+  .hidden{ display: none!important; }
+  ::ng-deep .mat-mdc-form-field-bottom-align{
+    height: 0;
+  }
+
+}

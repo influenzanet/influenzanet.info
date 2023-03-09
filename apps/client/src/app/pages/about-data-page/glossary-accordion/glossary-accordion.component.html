@@ -1,0 +1,19 @@
+<mat-accordion>
+  <ng-container *ngFor="let glossary of glossaryList">
+    <mat-expansion-panel hideToggle #panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="panel-toggle">
+            <span *ngIf="!panel.expanded"><i class="fa-solid fa-plus"></i></span>
+            <span *ngIf="panel.expanded"><i class="fa-solid fa-minus"></i></span>
+          </span>
+          <span class="panel-title">{{ glossary.title }}</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="mat-panel-content">
+        <p [innerHTML]="glossary.content"></p>
+        <a *ngIf="glossary?.link?.url" [href]="glossary.link.url" class="link">{{ glossary.link.text }}</a>
+      </div>
+    </mat-expansion-panel>
+  </ng-container>
+</mat-accordion>

@@ -1,0 +1,35 @@
+@import 'theme-variables';
+@import 'global';
+
+:host{
+  position: sticky;
+  bottom: 0;
+  left: 100%;
+  display: inline-flex;
+  width: min-content;
+  white-space: nowrap;
+  z-index:100;
+  @extend .space-rx;
+
+  .back-to-top-button{
+    $button-size: ($space-small-value*4)+$space-small-unit;
+
+
+    @extend .button-accent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: $button-size;
+    height: $button-size;
+    background-color: $color-accent;
+    color: white;
+    margin-bottom: 1rem;
+    padding:0;
+
+    & > *{
+      @extend .font-xxl;
+      line-height: 0!important;
+    }
+  }
+}

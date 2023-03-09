@@ -1,0 +1,22 @@
+<!--<div *ngFor="let gridItem of (data?.length > 0  ? data : gridItemList)" class="publication-card">-->
+<div *ngFor="let gridItem of dataList$ | async" class="publication-card">
+  <div class="item-logo-container">
+    <div class="item-logo-ratio">
+      <div>
+        <a
+          [href]="gridItem.website"
+          target="_blank"
+          class="item-logo"
+          [ngSwitch]="!!gridItem.logo"
+        >
+          <img *ngSwitchCase="true" [src]="gridItem.logo" [alt]="gridItem.name"/>
+          <span *ngSwitchCase="false" class="font-xxl">{{ gridItem.name }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <h3 class="item-title"><a [href]="gridItem.website" target="_blank">{{ gridItem.name }}</a></h3>
+  <h4 class="item-description-short" *ngIf="!!gridItem.descriptionShort">{{ gridItem.descriptionShort }}</h4>
+  <h3 class="item-country">{{ gridItem.country.name }}</h3>
+</div>
+

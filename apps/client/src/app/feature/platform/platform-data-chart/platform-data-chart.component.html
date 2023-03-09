@@ -1,0 +1,44 @@
+<div class="filters">
+  <mat-form-field appearance="outline" subscriptSizing="dynamic" *ngIf="dataType !== 'visits_cumulated'">
+    <mat-select
+      #select
+      (selectionChange)="filterChange()"
+      [(ngModel)]="platformDataFilter.year"
+      [disabled]="!platformDataFilter.year"
+    >
+      <mat-option *ngFor="let year of platformDataFilterAvailable?.year" [value]="year">{{year}}-{{year+1}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" *ngIf="dataType !== 'active'">
+    <mat-select
+      #select
+      (selectionChange)="filterChange()"
+      [(ngModel)]="platformDataFilter.syndrome"
+      [disabled]="!platformDataFilter.syndrome"
+    >
+      <mat-option *ngFor="let syndrome of platformDataFilterAvailable?.syndrome" [value]="syndrome">{{syndrome.split('.')[0]}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" *ngIf="dataType === 'visits_cumulated'">
+    <mat-select
+      #select
+      (selectionChange)="filterChange()"
+      [(ngModel)]="platformDataFilter.variable"
+      [disabled]="!platformDataFilter.variable"
+    >
+      <mat-option *ngFor="let variable of platformDataFilterAvailable?.variable" [value]="variable">
+        {{variable.split('.')[1]}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="chart-container">
+  <div class="chart"><div #chart></div></div>
+  <div [ngClass]="{'hidden': isChartData && isChartData !== undefined}" class="nodata"><p>Data not available</p></div>
+  <div [ngClass]="{'hidden': isChartData !== undefined}" class="nodata text-xl color-main"><h2><i class="fa-solid fa-circle-notch fa-spin"></i></h2></div>
+</div>
+
+

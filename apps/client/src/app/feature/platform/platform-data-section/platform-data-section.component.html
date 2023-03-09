@@ -1,0 +1,70 @@
+<div class="platform">
+  <!-- Platform Title Section-->
+  <p class="platform-title">
+    <span>
+      <span>Data Source: </span>
+      <a [href]="platform.website" target="_blank">
+        <strong class="link">{{ platform.name }}</strong>
+        <span class="arrow">
+          <i class="fa-solid fa-arrow-right mobile-hidden"></i>
+        </span>
+      </a>
+    </span>
+  </p>
+  <!-- Data not update notice Section-->
+  <div
+    *ngIf="!(isPlatformDataUpdated$ | async)"
+    class="platform-not-updated"
+  >
+    <div><span class="color-accent">Attention: </span> data not updated</div>
+  </div>
+  <!-- Platform Graph Section-->
+  <swipeable>
+    <div>
+      <p class="platform-data-title"><span><strong>Active Users</strong> (weekly)</span></p>
+      <platform-data-chart
+        [data]="platform.graphData?.active"
+        dataType="active"
+        #activeUsersChart
+      ></platform-data-chart>
+      <a
+        *ngIf="!activeUsersChart.isChartDataEmpty"
+        [href]="'/public/data/platform-data/'+platform.filePrefix+'_active.csv'"
+        target="_blank"
+        class="link"
+      >Download the data (.csv)</a>
+    </div>
+
+    <div>
+      <p class="platform-data-title"><span><strong>Incidence</strong> (ILI / per 1000)</span></p>
+      <platform-data-chart
+        [data]="platform.graphData?.incidence"
+        dataType="incidence"
+        #incidenceChart
+      ></platform-data-chart>
+      <a
+        *ngIf="!incidenceChart.isChartDataEmpty"
+        [href]="'/public/data/platform-data/'+platform.filePrefix+'_incidence.csv'"
+        target="_blank"
+        class="link"
+      >Download the data (.csv)</a>
+    </div>
+
+    <div>
+      <p class="platform-data-title"><span><strong>Visits Cumulative</strong> (ILI / per 100)</span></p>
+      <platform-data-chart
+        [data]="platform.graphData?.visits_cumulated"
+        dataType="visits_cumulated"
+        #visitsCumulatedChart
+      ></platform-data-chart>
+      <a
+        *ngIf="!visitsCumulatedChart.isChartDataEmpty"
+        [href]="'/public/data/platform-data/'+platform.filePrefix+'_visits_cumulated.csv'"
+        target="_blank"
+        class="link"
+      >Download the data (.csv)</a>
+    </div>
+
+  </swipeable>
+</div>
+

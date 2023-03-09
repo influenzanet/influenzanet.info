@@ -1,0 +1,131 @@
+@use 'sass:math';
+
+$mobile-break: 1000px;
+$mobile-menu-break: 1200px;
+
+$mobile-space-break-value: 1200;
+$mobile-space-break-unit: px;
+$mobile-space-break: $mobile-space-break-value+$mobile-space-break-unit;
+
+$space-small-value: 1;
+$space-small-unit: rem;
+$space-small: $space-small-value+$space-small-unit;
+
+$color-base: #303030;
+$color-base-light: #FCFCFC;
+$color-base-accent: #F0F3F6;
+$color-base-accent-dark: #979d9d;
+$color-main: #003556;
+$color-accent: #00AB9F;
+
+$colors: (
+  base: $color-base,
+  base-light: $color-base-light,
+  base-accent: $color-base-accent,
+  main: $color-main,
+  accent: $color-accent,
+  base-accent-dark: $color-base-accent-dark,
+);
+@each $label, $color in $colors{
+  .color-#{$label} { color: $color; }
+  .bg-#{$label} { background-color: $color; }
+}
+
+/*********
+* LAYOUT *
+*********/
+.t-none { padding-top:0; }
+.b-none { padding-bottom:0; }
+.t-0 { padding-top: math.div($space-small-value, 2)+$space-small-unit; }
+.b-0 { padding-bottom: math.div($space-small-value, 2)+$space-small-unit; }
+.tb-0 { padding-top: math.div($space-small-value, 2)+$space-small-unit; padding-bottom: math.div($space-small-value, 2)+$space-small-unit;}
+
+.l-none { padding-left: 0; }
+.r-none { padding-right: 0; }
+.l-0 { padding-left: math.div($space-small-value, 2)+$space-small-unit; }
+.r-0 { padding-right: math.div($space-small-value, 2)+$space-small-unit; }
+.lr-0 {  padding-left: v($space-small-value, 2)+$space-small-unit; padding-right: math.div($space-small-value, 2)+$space-small-unit; }
+
+
+.mt-none { margin-top:0; }
+.mb-none { margin-bottom:0; }
+.mt-0 { margin-top: math.div($space-small-value, 2)+$space-small-unit; }
+.mb-0 { margin-bottom: math.div($space-small-value, 2)+$space-small-unit; }
+.mtb-0 { margin-top: math.div($space-small-value, 2)+$space-small-unit; margin-bottom: math.div($space-small-value, 2)+$space-small-unit;}
+
+.ml-none { margin-left: 0; }
+.mr-none { margin-right: 0; }
+.ml-0 { margin-left: math.div($space-small-value, 2)+$space-small-unit; }
+.mr-0 { margin-right: math.div($space-small-value, 2)+$space-small-unit; }
+.mlr-0 {  margin-left: math.div($space-small-value, 2)+$space-small-unit; padding-right: math.div($space-small-value, 2)+$space-small-unit; }
+
+@for $i from 1 through 10 {
+  .t-#{$i} { padding-top: ($space-small-value*$i)+$space-small-unit; }
+  .b-#{$i} { padding-bottom: ($space-small-value*$i)+$space-small-unit; }
+  .tb-#{$i} {
+    padding-top: ($space-small-value*$i)+$space-small-unit;
+    padding-bottom: ($space-small-value*$i)+$space-small-unit;
+  }
+
+  .l-#{$i} { padding-left: ($space-small-value*$i)+$space-small-unit; }
+  .r-#{$i} { padding-right: ($space-small-value*$i)+$space-small-unit; }
+  .lr-#{$i} {
+    padding-left: ($space-small-value*$i)+$space-small-unit;
+    padding-right: ($space-small-value*$i)+$space-small-unit;
+  }
+
+  .mt-#{$i} { margin-top: ($space-small-value*$i)+$space-small-unit; }
+  .mb-#{$i} { margin-bottom: ($space-small-value*$i)+$space-small-unit; }
+  .mtb-#{$i} {
+    margin-top: ($space-small-value*$i)+$space-small-unit;
+    margin-bottom: ($space-small-value*$i)+$space-small-unit;
+  }
+
+  .ml-#{$i} { margin-left: ($space-small-value*$i)+$space-small-unit; }
+  .mr-#{$i} { margin-right: ($space-small-value*$i)+$space-small-unit; }
+  .mlr-#{$i} {
+    margin-left: ($space-small-value*$i)+$space-small-unit;
+    margin-right: ($space-small-value*$i)+$space-small-unit;
+  }
+}
+
+/*************
+* TYPOGRAPHY *
+*************/
+$font-sizes: (
+  xxs: 12,
+  xs: 14,
+  s: 16,
+  m: 18,
+  l: 21,
+  xl: 24,
+  xxl: 28,
+);
+
+
+.font-lh-none{ line-height: 0; }
+@each $label, $size in $font-sizes{
+  .font-#{$label} {
+    font-size: #{$size}px;
+    line-height: #{$size*1.9}px;
+  }
+  .font-lh-#{$label}{
+    line-height: #{$size*1.9}px;
+  }
+}
+
+.letter-spacing-none{ letter-spacing: 0!important; }
+.letter-spacing-s{ letter-spacing: 0.5px!important; }
+.letter-spacing-m{ letter-spacing: 0.75px!important; }
+.letter-spacing-l{ letter-spacing: 1px!important; }
+
+$font-family-roboto: 'Roboto', sans-serif;
+$font-family-nunito: 'Nunito Sans', sans-serif;
+.roboto{ font-family: $font-family-roboto; }
+.nunito{
+  @extend .letter-spacing-s;
+  font-family: $font-family-nunito;
+}
+
+
+

@@ -1,0 +1,61 @@
+@import "theme-variables";
+@import "global";
+
+.platform{
+  .platform-title{
+    @extend .space-x;
+    @extend .b-1;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .arrow{
+      @extend .color-accent;
+      margin-left: 0.5rem;
+      & > * {
+        text-decoration: none!important;
+      }
+      i{
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .platform-not-updated{
+    @extend .space-x;
+    @extend .b-1;
+    & > * {
+      padding:0.5rem 1rem;
+      border: 1px dashed $color-base;
+    }
+  }
+
+  //swipable-container{
+  swipeable ::ng-deep {
+    @extend .t-1;
+
+    .platform-data-title{
+      @extend .color-accent;
+      @extend .b-1;
+      display:flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+
+      @media all and (max-width: $mobile-space-break){
+        justify-content: center;
+      }
+    }
+
+    .link{
+      @extend .t-1;
+      @extend .font-s;
+      width: 100%;
+
+      display:flex;
+      @media all and (max-width: $mobile-space-break){
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  }
+}

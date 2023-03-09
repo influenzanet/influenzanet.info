@@ -1,0 +1,21 @@
+.gcbDll {
+  width: 100px!important;
+  height: 100px!important;
+  margin: 0 20px!important;
+  background-size: contain!important;
+  /*background-repeat: no-repeat;*/
+  /*background-position: 50% 50%;*/
+  /*display: inline-block;*/
+}
+
+.adminjs_Logo img{
+  /*padding: 1rem 0.25rem!important;*/
+  width: 100%;
+  height: auto;
+  max-width:none!important;
+}
+
+/*body{*/
+/*  border: solid 3px red!important;*/
+/*  colore: green;*/
+/*}*/

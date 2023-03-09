@@ -1,0 +1,74 @@
+@import "theme-variables";
+@import "global";
+
+.content{
+ @extend .b-4;
+}
+
+section.call-to-action{
+  @extend .bg-base-accent;
+  //@extend .t-5;
+  @extend .t-3;
+  @extend .b-3;
+
+  background-image: url('/assets/img/background/background_row.png');
+  background-repeat: repeat-x;
+  background-position: center;
+  //background-size: 100% auto;
+
+  .call-to-action__container{
+    @extend .space-x;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .call-to-action__text{
+      @extend .font-l;
+      @extend .letter-spacing-s;
+      @extend .color-main;
+      font-weight: 500;
+    }
+
+    p {
+      @extend .b-2;
+    }
+  }
+}
+
+section.glossary{
+  @extend .space-x;
+  @extend .tb-3;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  @media all and (max-width: $mobile-menu-break) {
+    grid-template-columns: 1fr;
+  }
+
+  .glossary-title{
+    @extend .subtitle;
+    @extend .r-3;
+  }
+
+  .glossary-description{
+    @extend .b-1;
+    margin-top: 0.5rem;
+  }
+
+  glossary-accordion{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    @media all and (max-width: $mobile-menu-break) {
+      grid-column-start:auto;
+      grid-column-end: auto;
+      grid-row-start: auto;
+      grid-row-end: auto;
+    }
+  }
+
+}
+
+

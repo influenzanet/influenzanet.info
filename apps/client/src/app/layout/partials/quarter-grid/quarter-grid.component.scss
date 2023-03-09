@@ -1,0 +1,38 @@
+@import "theme-variables";
+@import "global";
+
+.quarter-grid-container{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+
+  &::ng-deep > * > * > * { width: 100%; }
+
+  @media all and (max-width: $mobile-menu-break) {
+    grid-template-columns: 1fr;
+  }
+
+  .title{
+    @extend .subtitle;
+    @extend .r-3;
+  }
+
+  .description{
+    @extend .b-1;
+    margin-top: 0.5rem;
+  }
+
+  .content{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+    @media all and (max-width: $mobile-menu-break) {
+      grid-column-start:auto;
+      grid-column-end: auto;
+      grid-row-start: auto;
+      grid-row-end: auto;
+    }
+  }
+
+}
