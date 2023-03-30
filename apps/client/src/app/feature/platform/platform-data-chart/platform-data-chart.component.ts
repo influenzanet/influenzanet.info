@@ -168,33 +168,29 @@ export class PlatformDataChartComponent implements OnInit {
     this.platformDataFilterAvailable.variable = [...new Set(this.platformDataFilterAvailable.variable)]
 
     this.platformDataFilter = defaultFilters || new PlatformDataFilter()
-
   }
 
   public checkIsPlatformDataUpdated(data: GraphDataFeatureIndexed){
+    let isStartOfSeason= PlatformDataTransformer.isStartOfSeason()
+    let currentYear = moment().year()
+    let lastYear = currentYear-1
+    let newDataLimit = moment().subtract(4, 'week').format('YYYYww')
+
     if(this.dataType === 'visits_cumulated'){
       return flow(
-        mapValues((feature: GraphDataFeature)=>{
-          let isNewSeasonNow = PlatformDataTransformer.isNewSeasonNow()
-          return isNewSeasonNow
-            ? feature.rows.some((row: platformDataResponseFeature)=>row.season === moment().subtract(1, 'year').year())
-            : PlatformDataTransformer.hasPlatformDataFeatureData(feature.rows, this.dataType)
-        }),
+        mapValues((feature: GraphDataFeature)=>
+          feature.rows.some((row: platformDataResponseFeature)=>row.season===(isStartOfSeason ? currentYear : lastYear))
+        ),
         toArray,
         some((x)=>!!x)
       )(data)
     }
     else{
-      return  flow(
+      return flow(
         entries,
-        mapValues(([index, feature]: [string, GraphDataFeature])=>{
-          let stats = PlatformDataTransformer.platformDataIndexToStats(index)
-          let isNewSeasonNow = PlatformDataTransformer.isNewSeasonNow()
-          let isNewSeason = moment().year().toString() === stats.season
-          return isNewSeasonNow ?
-            isNewSeason && PlatformDataTransformer.hasPlatformDataFeatureData(feature.rows, this.dataType, stats.season)
-            : PlatformDataTransformer.hasPlatformDataFeatureData(feature.rows, this.dataType, stats.season)
-        }),
+        mapValues(([index, feature]: [string, GraphDataFeature])=>
+           feature.rows.some((row: platformDataResponseFeature)=>row.yw>=newDataLimit)
+        ),
         toArray,
         some((x)=>!!x)
       )(data)

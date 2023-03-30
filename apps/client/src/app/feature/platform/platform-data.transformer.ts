@@ -30,10 +30,7 @@ export class PlatformDataTransformer{
                   if (!platform.graphData[platformDataType][index]) platform.graphData[platformDataType][index] = new GraphDataFeature();
 
                   let dataPoint = this.instatiatePlatformFeature(data, platformDataType)
-                  if(dataPoint.value.toString() !== 'NaN'){
-                    platform.graphData[platformDataType][index]?.rows?.push(dataPoint)
-                  }
-
+                  if(dataPoint?.value?.toString() !== 'NaN'){ platform.graphData[platformDataType][index]?.rows?.push(dataPoint) }
                 }
                 catch (e:any){
                   console.error(`ERROR platform graph data generation error: ${platform.filePrefix}_${platformDataType}.csv, ERROR MESSAGE:`, e)
@@ -44,7 +41,7 @@ export class PlatformDataTransformer{
                 subscriber.complete()
               },
               error(error: Error) {
-                console.error(`ERROR on parsing csv: ${platform.filePrefix}_${platformDataType}.csv, ERROR MESSAGE:`, error)
+                console.warn(`${platform.filePrefix}_${platformDataType}.csv`, error)
                 subscriber.next(platform)
                 subscriber.complete()
               }
@@ -66,11 +63,11 @@ export class PlatformDataTransformer{
     return platform
   }
 
-  public static isNewSeasonNow(){
+  public static isStartOfSeason(): boolean {
     let seasonStart = moment().year((new Date()).getFullYear()).month(10).startOf('month')
     let now = moment()
-    let isNewSeason = now.isAfter(seasonStart) ? now.year() : now.subtract(1, 'year')
-    return isNewSeason
+    // let isNewSeason = now.isAfter(seasonStart) ? now.year() : now.subtract(1, 'year')
+    return now.isAfter(seasonStart)
   }
 
   public static hasPlatformDataFeatureData(data: platformDataResponseFeature[], dataType:platformDataType, forSeason?:string){
