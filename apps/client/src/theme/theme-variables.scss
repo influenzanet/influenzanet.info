@@ -1,4 +1,5 @@
 @use 'sass:math';
+@import "font";
 
 $mobile-break: 1000px;
 $mobile-menu-break: 1200px;
@@ -15,6 +16,7 @@ $color-base: #303030;
 $color-base-light: #FCFCFC;
 $color-base-accent: #F0F3F6;
 $color-base-accent-dark: #979d9d;
+$color-base-accent-medium: lighten($color-base-accent-dark, 20%);
 $color-main: #003556;
 $color-accent: #00AB9F;
 
@@ -25,6 +27,7 @@ $colors: (
   main: $color-main,
   accent: $color-accent,
   base-accent-dark: $color-base-accent-dark,
+  base-accent-medium: $color-base-accent-medium,
 );
 @each $label, $color in $colors{
   .color-#{$label} { color: $color; }
@@ -44,7 +47,7 @@ $colors: (
 .r-none { padding-right: 0; }
 .l-0 { padding-left: math.div($space-small-value, 2)+$space-small-unit; }
 .r-0 { padding-right: math.div($space-small-value, 2)+$space-small-unit; }
-.lr-0 {  padding-left: v($space-small-value, 2)+$space-small-unit; padding-right: math.div($space-small-value, 2)+$space-small-unit; }
+.lr-0 {  padding-left: math.div($space-small-value, 2)+$space-small-unit; padding-right: math.div($space-small-value, 2)+$space-small-unit; }
 
 
 .mt-none { margin-top:0; }
@@ -100,6 +103,8 @@ $font-sizes: (
   l: 21,
   xl: 24,
   xxl: 28,
+  xxxl: 32,
+  4xl: 40,
 );
 
 
@@ -125,6 +130,9 @@ $font-family-nunito: 'Nunito Sans', sans-serif;
 .nunito{
   @extend .letter-spacing-s;
   font-family: $font-family-nunito;
+}
+.ubuntu{
+  font-family: 'Ubuntu', sans-serif;
 }
 
 

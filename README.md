@@ -86,6 +86,13 @@ This step could take several minutes to complete. You might want to have a coffe
   docker-compose up -d
 ```
 
+&nbsp;
+
+4 (optional) - If you want to setup the application with example data, run the following command in the shell of the api container:
+
+```
+  migration seed
+```
 
 ## SSL
 To enable https put the certificate files in /dist/docker/ssl
@@ -111,3 +118,24 @@ Platform Data files are statically served from backend so restarting the nginx c
 
 &nbsp;
 
+## Migrations and seed
+
+Run the following commands in the shell of the api container(named node in development) in order to perform migrations and seed the database with initial data:
+
+- **Seed with example data**
+
+  `migration seed`
+  
+  This command will create and setup database tables, seed the database with example data and expose some assets like platform data files and images.
+
+
+- **Apply migrations**
+
+  `migration apply`
+
+- **Undo migration**
+
+  `migration undo`
+
+
+    

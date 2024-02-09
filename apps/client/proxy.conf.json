@@ -3,12 +3,16 @@
     "target": "http://localhost:3333",
     "secure": false
   },
-  "/public": {
+  "/admin": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/assets/data": {
     "target": "http://localhost:3333",
     "secure": false
   },
-  "/admin": {
-    "target": "http://localhost:3333",
+  "/assets/upload": {
+    "target": "http://localhost:3000",
     "secure": false
   }
 }

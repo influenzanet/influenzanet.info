@@ -11,7 +11,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$client-primary: mat.define-palette(mat.$cyan-palette);
+$client-primary: mat.define-palette(mat.$blue-palette);
 $client-accent: mat.define-palette(mat.$teal-palette, A700);
 
 // The warn palette is optional (defaults to red).
@@ -73,14 +73,19 @@ a{
 
 
 .mat-typography{
-  p, h1, h2, h3, h4, h5{
+  p, h1, h2, h3, h4, h5, h6{
     margin:0;
     padding:0;
   }
 }
 
-p, h1, h2, h3, h4, h5{
+p, h1, h2, h3, h4, h5, h6{
   margin:0;
   padding:0;
+  letter-spacing: 0.18px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-weight: 400;
 }
 

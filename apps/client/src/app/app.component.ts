@@ -1,23 +1,31 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {debounceTime, filter} from "rxjs";
+import { Component } from "@angular/core";
+import { animate, keyframes, query, style, transition, trigger } from "@angular/animations";
+
 
 @Component({
   selector: 'influenza-net-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('routeAnimations', [
+      transition('* <=> *', [
+        query(':enter',  [
+            animate('100ms ease',
+              keyframes([
+                style({
+                  opacity: '0',
+                  transform: 'scale(1.1, 1.1)',
+                }),
+                style({
+                  opacity: '1',
+                  transform: 'scale(1, 1)',
+                })
+              ])
+            ),
+          ],
+          { optional: true }),
+      ]),
+    ])
+  ]
 })
-export class AppComponent{
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {}
-
-
-  ngOnInit(): void {
-    this.router.events.pipe(
-      filter((event: any) => event instanceof NavigationEnd),
-      debounceTime(100)
-    ).subscribe((x: NavigationEnd)=>{  window.scrollTo(0,0) })
-  }
-}
+export class AppComponent{}

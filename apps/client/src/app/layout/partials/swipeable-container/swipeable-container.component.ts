@@ -1,220 +1,103 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {fromEvent, merge, sample} from "rxjs";
-import {BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-// import * as Hammer from 'hammerjs'
+import {
+  Component,
+  computed,
+  ContentChildren,
+  ElementRef,
+  HostListener, input,
+  Input, InputSignal,
+  Signal,
+  signal,
+  ViewChild,
+  WritableSignal
+} from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-// export class HammerConfig extends HammerGestureConfig {
-//   override overrides = <any> {
-//     'pinch': { enable: false },
-//     'swipe': { enable: true, direction: Hammer.DIRECTION_HORIZONTAL, threshold:100 },
-//     'pan': { enable: true, direction: Hammer.DIRECTION_HORIZONTAL, threshold:100 }
-//   }
-// }
 
 @Component({
   selector: 'swipeable',
+  styleUrls: ['swipeable-container.component.scss'],
+  standalone: true,
+  imports: [CommonModule],
   template: `
-    <span
-      class="arrow left desktop-hidden"
-      [ngClass]="{disabled: this.isAtStep && this.currentStep === 0}"
-      (click)="previous($event)"
-    ><i class="fa-solid fa-arrow-left"></i>
-    </span>
-    <div
-      class="swipeable-container"
-      #swipeableContainer
-      (panleft)="next($event) "
-      (panright)="previous($event)"
-    >
-      <div class="swipeable-inner" #swipeableInner>
+    @if (arrows()) {
+      @if (!isFirstStep()) {
+        <span class="arrow left" (click)="previous()" [class.mobile-hidden]="dots()"><i class="far fa-arrow-alt-circle-left"></i></span>
+      }
+      @if (!isLastStep()) {
+        <span class="arrow right" (click)="next()" [class.mobile-hidden]="dots()"><i class="far fa-arrow-alt-circle-right"></i></span>
+      }
+    }
+
+    <div class="swipeable-frame">
+      <div class="swipeable-container" (scroll)="onScroll()" #swipableContainer>
         <ng-content></ng-content>
       </div>
     </div>
 
-    <span
-      class="arrow right desktop-hidden"
-      [ngClass]="{disabled: this.isAtStep && this.children?.length && this.children.length-1 === this.currentStep}"
-      (click)="next($event)"
-    ><i class="fa-solid fa-arrow-right"></i></span>
-  `,
-  styleUrls: ['swipeable-container.component.scss'],
-  standalone: true,
-  imports: [BrowserModule, BrowserAnimationsModule, HammerModule],
-  // providers: [
-  //   {
-  //     provide: HAMMER_GESTURE_CONFIG,
-  //     useClass: HammerConfig
-  //   }
-  // ]
-})
-export class SwipeableContainerComponent implements OnInit {
-
-  public currentStep: number
-  public isAtStep: boolean
-
-  public swipeableContainer: ElementRef<HTMLElement>
-  public swipeableInner: HTMLElement
-  public inner: HTMLElement
-  public children: HTMLCollection
-
-  constructor(private elementRef: ElementRef) {
-    this.currentStep = 0;
-  }
-
-  @ViewChild('swipeableContainer')
-  set _swipable(swipeableContainer: ElementRef<HTMLElement>){
-    this.swipeableContainer = swipeableContainer
-    swipeableContainer.nativeElement.addEventListener('scroll', ()=>{ this.getSteps() })
-
-    // GET template parts
-    this.swipeableInner = swipeableContainer.nativeElement.querySelector('.swipeable-inner')
-    this.children = this.swipeableInner.children
-
-    // Expand swipableInner n times
-    if(this.swipeableInner && this.children) this.swipeableInner.classList.add(`element-${this.children.length}`)
-
-    // Calculate current position
-    this.getSteps()
-
-    // Init snap
-    this.addSnap()
-  }
-
-  public previous(event?:Event){
-    let steps = this.getSteps()
-    this.swipeableContainer.nativeElement.scrollTo({
-      left: steps.previous * window.innerWidth,
-      behavior: 'smooth'
-    })
-  }
-
-  public next(event?:Event){
-    let steps = this.getSteps()
-    this.swipeableContainer.nativeElement.scrollTo({
-      left: steps.next * window.innerWidth,
-      behavior: 'smooth'
-    })
-  }
-
-  private getSteps(): swipabeSteps{
-    let scrollPosition = this.swipeableContainer.nativeElement.scrollLeft
-    let stepSize = window.innerWidth
-    let current = Math.floor(scrollPosition/stepSize)
-    let isAtStep = scrollPosition % stepSize === 0
-
-    let next = current + 1
-    let previous = isAtStep ? current - 1: current
-
-    this.currentStep = current
-    this.isAtStep = isAtStep
-
-    return {previous, current, next}
-  }
-
-  private addSnap(){
-
-    // let hammer = new Hammer(this.swipableContainer.nativeElement);
-
-    // let hammer = new Manager(this.swipeableContainer.nativeElement, {domEvents: true});
-    // hammer.add( new Hammer.Pan({direction: Hammer.DIRECTION_HORIZONTAL, threshold: 0}) );
-    //
-    // hammer.on('panend' , (e)=>{
-    //   // do something cool
-    //   console.log('hammer swipe')
-    //   console.log(e)
-    //   e.deltaX > 0 ? this.previous() : this.next()
-    //
-    // });
-
-    return;
-
-    let start;
-    let scroll$ = fromEvent(this.swipeableContainer.nativeElement, 'scroll').pipe(
-      // switchMap(value => of(value).pipe(delay(50)))
-    )
-
-    // scroll$.subscribe(()=>{console.log('scroll')})
-
-    // MERGE mobile and desktop events
-    let swipeStart$ = merge(
-      fromEvent(this.swipeableContainer.nativeElement, 'mousedown'),
-      fromEvent(this.swipeableContainer.nativeElement, 'touchstart')
-    )
-
-    // MERGE mobile and desktop events
-    let swipeEnd$ = merge(
-      fromEvent(this.swipeableContainer.nativeElement, 'mouseup'),
-      fromEvent(this.swipeableContainer.nativeElement, 'touchend')
-    ).pipe(sample(scroll$))
-
-
-    swipeStart$.subscribe(()=>{
-      console.log('start')
-      start = this.swipeableContainer.nativeElement.scrollLeft
-    })
-    swipeEnd$.subscribe(()=>{
-      console.log('end')
-      if(!this.isAtStep){
-        let end = this.swipeableContainer.nativeElement.scrollLeft
-        let diff = start - end
-
-        if(Math.abs(diff) > 5){
-          diff < 0
-            ? this.next()
-            : this.previous()
-
-          let scrollPrevent = (event)=>{
-            // let steps = this.getSteps()
-            // this.swipableContainer.nativeElement.scrollTo({
-            //   left: steps.current * window.innerWidth,
-            //   behavior: 'smooth'
-            // })
-            event.stopPropagation();
-            event.preventDefault();
-            event.returnValue = false;
-            return false;
-          }
-
-          this.swipeableContainer.nativeElement.addEventListener('scroll', scrollPrevent)
-          setTimeout(()=>{
-            removeEventListener('scroll', scrollPrevent, false)
-          },500)
+    @if(dots()){
+      <div class="dots desktop-hidden">
+        @for (child of slides(); track child.id; let i=$index) {
+          <div
+            class="dot"
+            [class.active]="(i + 1) === currentStep()"
+            (click)="scrollToStep(i + 1)"
+          ></div>
         }
+      </div>
+    }
+  `
+})
+export class SwipeableContainerComponent{
+  public arrows: InputSignal<boolean> = input()
+  public dots: InputSignal<boolean> = input()
 
-      }
-    })
+  // windowWidth is used as a trigger(dependency) to recalculate the slideSize and slidePerPage on window resize
+  @HostListener('window:resize', ['$event']) onResize(event) { this.windowWidth.set(event.target.innerWidth) }
+  public windowWidth: WritableSignal<HTMLElement> = signal(undefined)
 
-    // let onSwipeStart = ()=>{start = this.swipableContainer.nativeElement.scrollLeft}
-    // let onSwipeEnd = ()=>{
-    //   if(!this.isAtStep){
-    //     let end = this.swipableContainer.nativeElement.scrollLeft
-    //     let diff = start - end
-    //
-    //     if(Math.abs(diff) > 5)
-    //       diff < 0
-    //       ? this.next()
-    //       : this.previous()
-    //   }
-    // }
-    //
-    // this.swipableContainer.nativeElement.addEventListener('scroll', ()=>console.log('scroll'))
-    //
-    //
-    // this.swipableContainer.nativeElement.addEventListener('mousedown', onSwipeStart)
-    // this.swipableContainer.nativeElement.addEventListener('touchstart', onSwipeStart)
-    //
-    // this.swipableContainer.nativeElement.addEventListener('mouseup', onSwipeEnd)
-    // this.swipableContainer.nativeElement.addEventListener('touchend', onSwipeEnd)
+  // Dom element reference relative to the swipeable container
+  @ViewChild('swipableContainer', {read: ElementRef}) set _swipable(swipeableContainer: ElementRef<HTMLElement>){
+    this.swipable.set(swipeableContainer.nativeElement)
   }
+  public swipable: WritableSignal<HTMLElement> = signal(undefined)
 
+  // Dom element reference relative to the swipeable items(slides)
+  @ContentChildren('slide', {read: ElementRef}) set _children(sildes: ElementRef<HTMLElement>[]){
+    this.slides.set(sildes.map(item=>item.nativeElement))
+  }
+  public slides: WritableSignal<HTMLElement[]> = signal([])
 
-  ngOnInit(): void {  }
-}
+  // Updates the scroll position
+  public onScroll(){ this.scrollPosition.set(this.swipable()?.scrollLeft) }
+  public scrollPosition : WritableSignal<number> = signal(0)
 
+  // Width in px of the visible area
+  // dependency: windowWidth
+  public frameWidth: Signal<number> = computed(()=> {
+    this.windowWidth() // dependency
+    return this.swipable()?.getBoundingClientRect().width
+  })
 
-export type swipabeSteps = {
-  previous: number
-  current: number
-  next: number,
+  // Width in px of the single slide, assuming that all slides have the same width, value is equal to the width of the first slide
+  // dependency: windowWidth
+  public slideSize: Signal<number> = computed(()=> {
+    this.windowWidth() // dependency
+    return this.slides()[0]?.getBoundingClientRect().width
+  })
+
+  // Number slides that fits in the visible area
+  public slidePerPage: Signal<number> = computed(()=> this.frameWidth() / this.slideSize() )
+
+  // Determine if the component should behave like a carousel or not based on the number of slides visible on the screen
+  // if the number of slides is less or equal than the number of slides visible on the screen the component should not behave like a carousel
+  public isStatic: Signal<boolean> = computed(()=> this.slidePerPage() >= this.slides()?.length )
+
+  // Compute the current step based on the scroll position
+  public currentStep: Signal<number> = computed(()=> Math.round(this.scrollPosition() / this.slideSize()+1) )
+  public isFirstStep: Signal<boolean> = computed(()=> this.currentStep() < 2 )
+  public isLastStep: Signal<boolean> = computed(()=> this.currentStep() >= (this.slides()?.length - Math.round(this.slidePerPage()) + 1) )
+
+  public previous(){ this.scrollToStep(this.currentStep() - 1) }
+  public next(){ this.scrollToStep(this.currentStep() + 1) }
+  public scrollToStep(step:number){ this.swipable()?.scrollTo((step - 1) * this.slideSize(), 0) }
 }

@@ -1,0 +1,220 @@
+[
+  {
+    "id": 1,
+    "name": "ISI Foundation",
+    "website": "https://isi.it/en/home",
+    "logo": {
+      "key": "logo/partner/ISI_logo.png",
+      "mime": "image/png",
+      "size": "8159",
+      "bucket": "/app/assets/upload",
+      "filename": "ISI_logo.png"
+    },
+    "platformId": 10,
+    "description": "<p>Task manager</p>",
+    "order": 1,
+    "hidden": false
+  },
+  {
+    "id": 2,
+    "name": "Institute of Global Health (ISG) of the Faculty of Medicine of the University of Geneva",
+    "website": "https://www.unige.ch/medecine/isg/",
+    "logo": {
+      "key": "logo/partner/Universite_de_geneve_logo.png",
+      "mime": "image/png",
+      "size": "27420",
+      "bucket": "/app/assets/upload",
+      "filename": "Universite_de_geneve_logo.png"
+    },
+    "platformId": 9,
+    "description": "<p class=\"p1\">Task manager</p>",
+    "order": 10,
+    "hidden": false
+  },
+  {
+    "id": 3,
+    "name": "ETH",
+    "website": "https://ethz.ch/en.html",
+    "logo": {
+      "key": "logo/partner/ETH_logo.png",
+      "mime": "image/png",
+      "size": "10000",
+      "bucket": "/app/assets/upload",
+      "filename": "ETH_logo.png"
+    },
+    "platformId": 9,
+    "description": "<p>Task manager</p>",
+    "order": 20,
+    "hidden": false
+  },
+  {
+    "id": 4,
+    "name": "Statens Serum Institute (SSI)",
+    "website": "https://en.ssi.dk/",
+    "logo": {
+      "key": "logo/partner/Statens_Serum_Institut.png",
+      "mime": "image/png",
+      "size": "17180",
+      "bucket": "/app/assets/upload",
+      "filename": "Statens_Serum_Institut.png"
+    },
+    "platformId": 1,
+    "description": "<p>Task manager</p>",
+    "order": 30,
+    "hidden": false
+  },
+  {
+    "id": 5,
+    "name": "Inserm",
+    "website": "https://www.inserm.fr/",
+    "logo": null,
+    "platformId": 11,
+    "description": "<p>Task manager</p>",
+    "order": 40,
+    "hidden": false
+  },
+  {
+    "id": 6,
+    "name": "Sorbonne University",
+    "website": "https://www.sorbonne-universite.fr",
+    "logo": {
+      "key": "logo/partner/Sorbonne_Universite.png",
+      "mime": "image/png",
+      "size": "13049",
+      "bucket": "/app/assets/upload",
+      "filename": "Sorbonne_Universite.png"
+    },
+    "platformId": 11,
+    "description": "<p>Task manager</p>",
+    "order": 50,
+    "hidden": false
+  },
+  {
+    "id": 7,
+    "name": "Public Health France (formerly Institut de Veille Sanitaire)",
+    "website": "https://www.santepubliquefrance.fr",
+    "logo": {
+      "key": "logo/partner/Sante_publique_france.png",
+      "mime": "image/png",
+      "size": "16983",
+      "bucket": "/app/assets/upload",
+      "filename": "Sante_publique_france.png"
+    },
+    "platformId": 11,
+    "description": "<p>Task manager</p>",
+    "order": 60,
+    "hidden": false
+  },
+  {
+    "id": 8,
+    "name": "Laboratory of Digital Epidemiology at EPFL",
+    "website": "https://www.digitalepidemiologylab.org/",
+    "logo": {
+      "key": "logo/partner/EPFL_logo.png",
+      "mime": "image/png",
+      "size": "11050",
+      "bucket": "/app/assets/upload",
+      "filename": "EPFL_logo.png"
+    },
+    "platformId": 9,
+    "description": "<p>Task manager</p>",
+    "order": 70,
+    "hidden": false
+  },
+  {
+    "id": 9,
+    "name": "National Reference Center for Influenza (HUG, Geneva)",
+    "website": "https://www.hug.ch/laboratoire-virologie/centre-national-reference-influenza-cnri",
+    "logo": {
+      "key": "logo/partner/HUG_logo.png",
+      "mime": "image/png",
+      "size": "15229",
+      "bucket": "/app/assets/upload",
+      "filename": "HUG_logo.png"
+    },
+    "platformId": 9,
+    "description": "<p>Task manager</p>",
+    "order": 80,
+    "hidden": false
+  },
+  {
+    "id": 10,
+    "name": "UK Health Security Agency",
+    "website": "https://www.gov.uk/government/organisations/uk-health-security-agency",
+    "logo": {
+      "key": "logo/partner/UK_Health_Security_Agency_logo.png",
+      "mime": "image/png",
+      "size": "20711",
+      "bucket": "/app/assets/upload",
+      "filename": "UK_Health_Security_Agency_logo.png"
+    },
+    "platformId": 3,
+    "description": "<p>Task manager</p>",
+    "order": 90,
+    "hidden": false
+  },
+  {
+    "id": 11,
+    "name": "Dutch National Institute for Public Health and the Environment (RIVM)",
+    "website": "https://www.rivm.nl/",
+    "logo": {
+      "key": "logo/partner/RIVM_logo.png",
+      "mime": "image/png",
+      "size": "41389",
+      "bucket": "/app/assets/upload",
+      "filename": "RIVM_logo.png"
+    },
+    "platformId": 4,
+    "description": "<p>Task manager</p>",
+    "order": 100,
+    "hidden": false
+  },
+  {
+    "id": 12,
+    "name": "Robert Koch Institute",
+    "website": "https://www.rki.de/EN/Home/homepage_node.html",
+    "logo": {
+      "key": "logo/partner/Robert_Koch_Institut_logo.png",
+      "mime": "image/png",
+      "size": "16817",
+      "bucket": "/app/assets/upload",
+      "filename": "Robert_Koch_Institut_logo.png"
+    },
+    "platformId": 5,
+    "description": "<p>Task manager</p>",
+    "order": 110,
+    "hidden": false
+  },
+  {
+    "id": 13,
+    "name": "Hasselt University",
+    "website": "https://www.uhasselt.be/en",
+    "logo": {
+      "key": "logo/partner/Hasselt_University_logo.png",
+      "mime": "image/png",
+      "size": "12184",
+      "bucket": "/app/assets/upload",
+      "filename": "Hasselt_University_logo.png"
+    },
+    "platformId": 12,
+    "description": "<p>Task manager</p>",
+    "order": 120,
+    "hidden": false
+  },
+  {
+    "id": 14,
+    "name": "Instituto Nacional de Saúde Dr. Ricardo Jorge",
+    "website": "https://www.insa.min-saude.pt",
+    "logo": {
+      "key": "logo/partner/Istituto_National_De_Saude_logo.png",
+      "mime": "image/png",
+      "size": "25563",
+      "bucket": "/app/assets/upload",
+      "filename": "Istituto_National_De_Saude_logo.png"
+    },
+    "platformId": 6,
+    "description": "<p>Task manager</p>",
+    "order": 130,
+    "hidden": false
+  }
+]

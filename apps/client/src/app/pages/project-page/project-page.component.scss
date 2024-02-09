@@ -1,6 +1,15 @@
 @import "theme-variables";
 @import "global";
 
-.eu-projects{
-  @extend .bg-base-accent
+:host{
+  .eu-projects{
+    @extend .bg-base-accent
+  }
+
+  .map{
+    width: 70%;
+    @media (max-width: $mobile-break){
+      width: 100%;
+    }
+  }
 }

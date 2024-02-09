@@ -1,9 +1,9 @@
-import {BaseEntity, Entity, Column, PrimaryGeneratedColumn, ManyToOne, RelationId, ManyToMany} from 'typeorm';
-import {Country} from "./Country";
-import {Partner} from "./Partner";
-import {
-  PlatformData, platformDataResponseFeature, PlatformFeature
-} from "@models/PlatformData";
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, RelationId } from "typeorm";
+import { Country } from "./Country";
+import { Partner } from "./Partner";
+import { PlatformData, platformDataFeature } from "@models/PlatformData";
+import { UploadedFile } from "@models/UploadedFile";
+import { Type } from "class-transformer";
 
 
 @Entity({name:'platform'})
@@ -16,9 +16,9 @@ export class Platform extends BaseEntity{
     filePrefix: string,
     country: Country,
     countryId: number,
-    partner: Partner[],
+    partners: Partner[],
     data?:PlatformData,
-    logo?:string
+    logo?:UploadedFile & {filename: string}
   ) {
     super();
     this.id = id;
@@ -28,7 +28,7 @@ export class Platform extends BaseEntity{
     this.filePrefix = filePrefix;
     this.country = country;
     this.countryId = countryId;
-    this.partner = partner;
+    this.partners = partners;
     this.data = data
     this.logo = logo
 
@@ -41,23 +41,29 @@ export class Platform extends BaseEntity{
   @Column()
   name: string;
 
-  @Column({nullable:true})
-  description?: string;
-
-  @Column({nullable:true})
-  website?: string;
+  @Column()
+  description: string;
 
   @Column()
   filePrefix: string
 
-  @Column({default: true})
-  active: boolean
+  @Column({default: false, nullable: false, type: 'boolean'})
+  hidden: boolean
 
-  @Column({default:100, nullable:true})
+  @Column({default:100})
   order: number
 
-  @Column({nullable: true})
-  logo?: string
+  @Column({nullable:true})
+  about?: string;
+
+  @Column({nullable:true})
+  website?: string;
+
+  @Column({nullable:true})
+  websiteJoinLink?: string;
+
+  @Column({nullable: true, type: 'json'})
+  logo?: UploadedFile
 
   @ManyToOne('country', 'platforms')
   country: Country
@@ -66,27 +72,25 @@ export class Platform extends BaseEntity{
   @Column()
   countryId: number;
 
-  @ManyToMany(() => Partner)
-  partner: Partner[]
+  @Type(()=>require('./Partner').Partner)
+  @OneToMany('partner','platform')
+  partners: Partner[]
 
   data: PlatformData
   graphData?: GraphData
-}
 
-
-export class GraphDataFeature{
-  constructor(data?: Partial<GraphDataFeature>) {
-    data && Object.assign(this, data)
-    this.rows = this.rows || ([] as platformDataResponseFeature[])
+  get filePath(): string{
+    return `/public/upload/${this.logo?.key}`
   }
-  rows: platformDataResponseFeature[]
-  hasData?: boolean
 }
 
-export class GraphDataFeatureIndexed{[key: string]: GraphDataFeature}
+export class GraphDataFeatureIndexed{
+  [key: string]: platformDataFeature[]
+  constructor(data?: Partial<GraphDataFeatureIndexed>){ Object.assign(this, data) }
+}
 
 export class GraphData {
-  constructor(data?: Partial<PlatformData>) {
+  constructor(data?: Partial<PlatformData>|Partial<GraphData>) {
     data && Object.assign(this, data)
     this.active = this.active || new GraphDataFeatureIndexed()
     this.incidence = this.incidence || new GraphDataFeatureIndexed()

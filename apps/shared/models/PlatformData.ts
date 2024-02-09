@@ -1,5 +1,5 @@
 import {Platform} from "@models/Platform";
-import * as moment from "moment";
+import moment from "moment";
 
 export class PlatformFeature{
   constructor(data: any) {
@@ -19,6 +19,22 @@ export class PlatformFeature{
   value?: number
   min?: number
   max?: number
+  index?: string
+
+  public static statsToIndex(season?, syndrome?, variable?, dataType?:platformDataType){
+    // index format: season|syndrome|variable, null value are set to _
+    return `${dataType && dataType === 'visits_cumulated' ? '_' : (season || '_')}|${syndrome || '_'}|${variable || '_'}`
+  }
+
+  public static indexToStats(index:string){
+    // index format: season|syndrome|variable, null value are set to _
+    let indexComponents = index.split('|')
+    return{
+      season: indexComponents[0] !== '_' ? indexComponents[0]: undefined,
+      syndrome: indexComponents[1] !== '_' ? indexComponents[1]: undefined,
+      variable: indexComponents[2] !== '_' ? indexComponents[2]: undefined,
+    }
+  }
 }
 
 export class PlatformData {
@@ -93,8 +109,6 @@ export class PlatformDataVisitsCumulated extends PlatformFeature{
   total_weight: number
   variable: string
   yw: string
-
-
 }
 
 
@@ -106,4 +120,4 @@ export type platformDataResponse = {
   dataType:platformDataType
 }
 
-export type platformDataResponseFeature = PlatformDataIncidence|PlatformDataActive|PlatformDataVisitsCumulated
+export type platformDataFeature = PlatformDataIncidence|PlatformDataActive|PlatformDataVisitsCumulated

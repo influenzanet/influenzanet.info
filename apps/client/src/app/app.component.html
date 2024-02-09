@@ -1,7 +1,11 @@
 <main-navigation></main-navigation>
 
-<div style="display: flex; flex-direction: column; flex: 1 1 1px;" class="bg-base-light">
+<!--<div class="main-content bg-base-light" [@routeAnimations]="getRouteTitle()">-->
+<div class="main-content bg-base-light">
   <page-title></page-title>
+<!--  <section class="page-title-section">-->
+<!--    <page-title></page-title>-->
+<!--  </section>-->
   <router-outlet></router-outlet>
   <back-to-top></back-to-top>
 </div>

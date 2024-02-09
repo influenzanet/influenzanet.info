@@ -14,6 +14,7 @@
   nav{
     $logo-height: 3;
     width: 100%;
+    background-color: white;
 
     .nav-content {
       @extend .space-x;
@@ -23,6 +24,11 @@
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
+
+      @media all and (max-width: $mobile-menu-break) {
+        padding-top: 1rem;
+        justify-content: center;
+      }
 
       .active{
         @extend .color-accent;
@@ -42,7 +48,7 @@
         flex: 1 1 1px;
 
         & > * {
-          @extend .r-3;
+          @extend .l-3;
           @extend .font-s;
           @extend .nunito;
           margin: math.div($logo-height, 3)+rem 0;
@@ -70,6 +76,7 @@
             justify-content: center;
             text-align: center;
             padding-right:0;
+            padding-left:0;
             font-size: 1.3rem;
             //line-height: 4rem;
             letter-spacing: 3px;

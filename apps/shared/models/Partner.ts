@@ -1,20 +1,14 @@
-import {BaseEntity, Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany, JoinTable} from 'typeorm';
-import {ResourceWithOptions} from "adminjs/types/src/adminjs-options.interface";
-import {Platform} from "./Platform";
-// import uploadFeature from '@adminjs/upload'
-// const path = require("path");
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Platform } from "./Platform";
+import { UploadedFile } from "@models/UploadedFile";
+
 
 @Entity({name:'partner'})
 export class Partner extends BaseEntity{
 
-  constructor(id: number, name: string, logo: string, website: string, description: string, platform: Platform[]) {
+  constructor(Partner: Partial<Partner>) {
     super();
-    this.id = id;
-    this.name = name;
-    this.logo = logo;
-    this.website = website;
-    this.description = description;
-    this.platform = platform;
+    Object.assign(this, Partner);
   }
 
   @PrimaryGeneratedColumn()
@@ -23,17 +17,25 @@ export class Partner extends BaseEntity{
   @Column()
   name: string
 
-  @Column()
-  logo: string
+  @Column({default: false, nullable: false, type: 'boolean'})
+  hidden: boolean
+
+  @Column({nullable: true, type: 'json'})
+  logo?: UploadedFile
 
   @Column({nullable:true})
   website?: string
 
   @Column({nullable:true})
-  description?: string;
+  description?: string
 
-  @ManyToMany(() => Platform)
-  @JoinTable()
-  platform: Platform[]
+  @Column({default:100, nullable:true})
+  order: number = 100
+
+  @ManyToOne('platform', 'partner')
+  platform: Platform
+
+  @Column()
+  platformId: number
 }
 

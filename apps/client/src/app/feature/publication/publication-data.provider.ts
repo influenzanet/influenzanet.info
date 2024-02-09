@@ -5,6 +5,7 @@ import {shareReplay} from 'rxjs/operators';
 import {plainToInstance} from 'class-transformer';
 import {Publication} from "@models/Publication";
 import {environment} from "../../../environments/environment";
+import { orderBy } from "lodash/fp";
 
 
 @Injectable({
@@ -20,6 +21,7 @@ export class PublicationDataProvider {
     // ShareReplay to avoid duplicate requests
     this.publicationList$ = this.http.get<Publication[]>(`${environment.apiBaseUrl}/publication`).pipe(
       map((publication:Publication[])=>plainToInstance(Publication, publication)),
+      map((publicationList: Publication[])=><Publication[]>orderBy('publicationDate', 'desc')(publicationList)),
       shareReplay(1)
     )
   }

@@ -2,69 +2,73 @@
   <!-- Platform Title Section-->
   <p class="platform-title">
     <span>
-      <span>Data Source: </span>
-      <a [href]="platform.website" target="_blank">
-        <strong class="link">{{ platform.name }}</strong>
+      <span class="link underline">
+        <span>Data Source: </span>
+        <strong class="link underline" (click)="goToPlatform(platform())">{{ platform().name }}</strong>
+      </span>
+      <span [hidden]="!platform()" (click)="goToPlatform(platform())" >
         <span class="arrow">
           <i class="fa-solid fa-arrow-right mobile-hidden"></i>
         </span>
-      </a>
+      </span>
     </span>
   </p>
-  <!-- Data not update notice Section-->
-  <div
-    *ngIf="!(isPlatformDataUpdated$ | async)"
-    class="platform-not-updated"
-  >
-    <div><span class="color-accent">Attention: </span> data not updated</div>
-  </div>
+
   <!-- Platform Graph Section-->
-  <swipeable>
-    <div>
+  <swipeable [arrows]="true" class="data-container">
+    <div #slide>
       <p class="platform-data-title"><span><strong>Active Users</strong> (weekly)</span></p>
-      <platform-data-chart
-        [data]="platform.graphData?.active"
-        dataType="active"
-        #activeUsersChart
-      ></platform-data-chart>
-      <a
-        *ngIf="!activeUsersChart.isChartDataEmpty"
-        [href]="'/public/data/platform-data/'+platform.filePrefix+'_active.csv'"
-        target="_blank"
-        class="link"
-      >Download the data (.csv)</a>
+        @defer(prefetch on idle){
+          <platform-data-chart
+            [data]="platform().graphData?.active"
+            dataType="active"
+            #activeUsersChart
+          ></platform-data-chart>
+          <a
+            [class.transparent]="!activeUsersChart?.hasData()"
+            [href]="'/public/data/platform-data/'+platform().filePrefix+'_active.csv'"
+            target="_blank"
+            class="link"
+          >Download the data (.csv)</a>
+        }
+        @placeholder { <div class="chart-placeholder"><i class="fa-solid fa-circle-notch fa-spin text-xl"></i></div> }
     </div>
 
-    <div>
+    <div #slide>
       <p class="platform-data-title"><span><strong>Incidence</strong> (ILI / per 1000)</span></p>
-      <platform-data-chart
-        [data]="platform.graphData?.incidence"
-        dataType="incidence"
-        #incidenceChart
-      ></platform-data-chart>
-      <a
-        *ngIf="!incidenceChart.isChartDataEmpty"
-        [href]="'/public/data/platform-data/'+platform.filePrefix+'_incidence.csv'"
-        target="_blank"
-        class="link"
-      >Download the data (.csv)</a>
+      @defer(prefetch on idle){
+        <platform-data-chart
+          [data]="platform().graphData?.incidence"
+          dataType="incidence"
+          #incidenceChart
+        ></platform-data-chart>
+        <a
+          [class.transparent]="!incidenceChart?.hasData()"
+          [href]="'/public/data/platform-data/'+platform()?.filePrefix+'_incidence.csv'"
+          target="_blank"
+          class="link"
+        >Download the data (.csv)</a>
+      }
+      @placeholder { <div class="chart-placeholder"><i class="fa-solid fa-circle-notch fa-spin text-xl"></i></div> }
     </div>
 
-    <div>
+    <div #slide>
       <p class="platform-data-title"><span><strong>Visits Cumulative</strong> (ILI / per 100)</span></p>
-      <platform-data-chart
-        [data]="platform.graphData?.visits_cumulated"
-        dataType="visits_cumulated"
-        #visitsCumulatedChart
-      ></platform-data-chart>
-      <a
-        *ngIf="!visitsCumulatedChart.isChartDataEmpty"
-        [href]="'/public/data/platform-data/'+platform.filePrefix+'_visits_cumulated.csv'"
-        target="_blank"
-        class="link"
-      >Download the data (.csv)</a>
+      @defer(prefetch on idle){
+        <platform-data-chart
+          [data]="platform().graphData?.visits_cumulated"
+          dataType="visits_cumulated"
+          #visitsCumulatedChart
+        ></platform-data-chart>
+        <a
+          [class.transparent]="!visitsCumulatedChart?.hasData()"
+          [href]="'/public/data/platform-data/'+platform().filePrefix+'_visits_cumulated.csv'"
+          target="_blank"
+          class="link"
+        >Download the data (.csv)</a>
+      }
+      @placeholder { <div class="chart-placeholder"><i class="fa-solid fa-circle-notch fa-spin text-xl"></i></div> }
     </div>
-
   </swipeable>
 </div>
 

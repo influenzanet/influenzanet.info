@@ -1,0 +1,82 @@
+
+:root{
+  --colorMain: '#003556';
+  --colorAccent: '#008a80';
+  --colorBase: '#404040';
+  --colorBaseLight: '#FCFCFC';
+  --colorBaseAccent: '#F0F3F6';
+  --colorBaseAccentDark: '#979d9d';
+  --colorError: rgb(194, 0, 18);
+}
+
+/* TinyMCE */
+.tox{
+  border-radius: 2px!important;
+}
+
+.tiny-mce-errored .tox {
+  border: solid 1px var(--colorError);!important;
+}
+.tiny-mce-errored label{
+  color: var(--colorError);!important;
+}
+
+/* Topbar */
+[data-css*="topbar"]{
+  height: 6rem!important;
+}
+
+.adminjs_Logo{
+  padding-top: 1.5rem!important;
+}
+
+.adminjs_Logo img{
+  max-width: 100%!important;
+
+}
+
+/* Sidebar */
+[data-css*="sidebar-resources"] > .adminjs_Box > *:first-child{
+  margin-bottom: 1.5rem!important;
+}
+
+/* Table custom styles */
+.adminjs_Box[data-css*="table-wrapper"]{
+  background-color: rgba(0,0,0,0);
+  padding:0;
+}
+
+.adminjs_Table{
+  background-color: white!important;
+  box-shadow:  0 2px 4px rgba(0, 0, 0, 0.1)
+}
+
+/* Fix custom label goes to newline */
+.adminjs_Label{
+  display: inline-flex!important;
+}
+
+/* Page title and action bar title */
+.adminjs_H2, .adminjs_H3, .adminjs_Header{
+  color: var(--colorMain)!important;
+  font-size: 2rem!important;
+  line-height:2.5rem!important;
+  display: flex!important;
+  flex-direction: row!important;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.adminjs_H2 .adminjs_Badge{
+  font-size: 0.8rem!important;
+  line-height: 1rem!important;
+  margin-left: 1.5rem!important;
+}
+
+.adminjs_ActionHeader{
+  margin-bottom: 2rem!important;
+}
+
+.adminjs_ActionHeader .adminjs_Box .adminjs_H3{
+  margin-bottom: 0!important;
+}

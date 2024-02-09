@@ -1,6 +1,6 @@
-import {BaseEntity, Entity, Column, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
-import {ResourceWithOptions} from "adminjs/types/src/adminjs-options.interface";
-import {Platform} from "./Platform";
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Platform } from "./Platform";
+
 
 @Entity({name:'country'})
 export class Country extends BaseEntity{
@@ -12,8 +12,11 @@ export class Country extends BaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({nullable: false, unique: true})
   name: string;
+
+  @Column({default: false, nullable: false, type: 'boolean'})
+  hidden: boolean
 
   // @OneToMany(() => Platform, (platform: Platform) => platform.country)
   @OneToMany('platform', 'country')

@@ -1,44 +1,55 @@
-<div class="filters">
-  <mat-form-field appearance="outline" subscriptSizing="dynamic" *ngIf="dataType !== 'visits_cumulated'">
-    <mat-select
-      #select
-      (selectionChange)="filterChange()"
-      [(ngModel)]="platformDataFilter.year"
-      [disabled]="!platformDataFilter.year"
-    >
-      <mat-option *ngFor="let year of platformDataFilterAvailable?.year" [value]="year">{{year}}-{{year+1}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<div class="filters" [class.transparent]="!hasData()">
+  @if(dataType() !== 'visits_cumulated'){
+    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+      <mat-select
+        #select
+        (selectionChange)="filterChange({'year':$event.value})"
+        [value]="currentFilter().year"
+        [disabled]="!currentFilter().year"
+      >
+       @for(year of filterAvailable()?.year; track year){
+        <mat-option [value]="year">{{year}}-{{year+1}}</mat-option>
+       }
+      </mat-select>
+    </mat-form-field>
+  }
 
-  <mat-form-field appearance="outline" *ngIf="dataType !== 'active'">
-    <mat-select
-      #select
-      (selectionChange)="filterChange()"
-      [(ngModel)]="platformDataFilter.syndrome"
-      [disabled]="!platformDataFilter.syndrome"
-    >
-      <mat-option *ngFor="let syndrome of platformDataFilterAvailable?.syndrome" [value]="syndrome">{{syndrome.split('.')[0]}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+  @if(dataType() !== 'active'){
+    <mat-form-field appearance="outline">
+      <mat-select
+        #select
+        (selectionChange)="filterChange({'syndrome':$event.value})"
+        [value]="currentFilter().syndrome"
+        [disabled]="!currentFilter().syndrome"
+      >
+        @for(syndrome of filterAvailable()?.syndrome; track syndrome){
+          <mat-option [value]="syndrome">{{syndrome.split('.')[0]}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
 
-  <mat-form-field appearance="outline" *ngIf="dataType === 'visits_cumulated'">
-    <mat-select
-      #select
-      (selectionChange)="filterChange()"
-      [(ngModel)]="platformDataFilter.variable"
-      [disabled]="!platformDataFilter.variable"
-    >
-      <mat-option *ngFor="let variable of platformDataFilterAvailable?.variable" [value]="variable">
-        {{variable.split('.')[1]}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  @if(dataType() === 'visits_cumulated'){
+    <mat-form-field appearance="outline">
+      <mat-select
+        #select
+        (selectionChange)="filterChange({'variable':$event.value})"
+        [(ngModel)]="currentFilter().variable"
+        [disabled]="!currentFilter().variable"
+      >
+        @for(variable of filterAvailable()?.variable; track variable){
+          <mat-option [value]="variable">{{variable.split('.')[1]}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
 </div>
 
 <div class="chart-container">
-  <div class="chart"><div #chart></div></div>
-  <div [ngClass]="{'hidden': isChartData && isChartData !== undefined}" class="nodata"><p>Data not available</p></div>
-  <div [ngClass]="{'hidden': isChartData !== undefined}" class="nodata text-xl color-main"><h2><i class="fa-solid fa-circle-notch fa-spin"></i></h2></div>
+<!--  <div [hidden]="!hasData()" class="chart"><div #chart></div></div>-->
+  <div class="chart" #chart></div>
+  <div [class.hidden]="hasData() || isLoading()" class="nodata"><p>Data not available</p></div>
+  <div [class.hidden]="!isLoading()" class="nodata color-main"><h2><i class="fa-solid fa-circle-notch fa-spin font-xxxl"></i></h2></div>
 </div>
 
 

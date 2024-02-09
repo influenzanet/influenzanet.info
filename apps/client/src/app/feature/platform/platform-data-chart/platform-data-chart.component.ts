@@ -1,19 +1,25 @@
-import {Component, ElementRef, Input, OnInit, Output, ViewChild} from '@angular/core';
-import * as c3 from 'c3';
-import {ChartAPI, DataPoint, DataSeries} from "c3";
-import {Subject, ReplaySubject, Observable} from "rxjs";
-import {platformDataResponseFeature, platformDataType, PlatformDataVisitsCumulated} from "@models/PlatformData";
-import {combineLatest} from "rxjs";
-import * as moment from 'moment'
-import {PlatformDataFilter, PlatformDataSyndrome, PlatformDataVariable} from "./PlatformData.adapter";
-import {PlatformDataTransformer} from "../platform-data.transformer";
-import {GraphDataFeature, GraphDataFeatureIndexed} from "@models/Platform";
-import {flow} from "lodash";
-import {mapValues, toArray, some, entries} from "lodash/fp";
-import {CommonModule} from "@angular/common";
-import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
-import {shareReplay} from "rxjs/operators";
+import {
+  Component,
+  computed,
+  effect,
+  ElementRef, HostListener, input,
+  Input, InputSignal,
+  Signal,
+  signal,
+  ViewChild,
+  WritableSignal
+} from "@angular/core";
+import * as c3 from "c3";
+import { DataPoint, DataSeries } from "c3";
+import { platformDataType, PlatformDataVisitsCumulated, PlatformFeature } from "@models/PlatformData";
+import moment from "moment";
+import { PlatformDataFilter, PlatformDataSyndrome, PlatformDataVariable } from "./PlatformData.adapter";
+import { GraphDataFeatureIndexed } from "@models/Platform";
+import { isEmpty } from "lodash";
+import { CommonModule } from "@angular/common";
+import { MatSelectModule } from "@angular/material/select";
+import { FormsModule } from "@angular/forms";
+
 
 @Component({
   selector: 'platform-data-chart',
@@ -22,91 +28,101 @@ import {shareReplay} from "rxjs/operators";
   standalone: true,
   imports: [CommonModule, MatSelectModule, FormsModule]
 })
-export class PlatformDataChartComponent implements OnInit {
-  private data$: ReplaySubject<GraphDataFeatureIndexed>
-  private chart$: Subject<ElementRef<HTMLElement>>
-  public isPlatformDataUpdated$: ReplaySubject<boolean>
-  public chartAPI: ChartAPI
-
-
-  public platformDataFilter: PlatformDataFilter
-  public platformDataFilterAvailable: platformDataFilterAvailable
-  public isChartData:boolean
-  public isChartDataEmpty:boolean
-
-  @ViewChild('chart', {read: ElementRef, static: false})
-  set chart(el: ElementRef<HTMLElement>) {
-    this._chart = el
-    this.chart$.next(el)
-  }
-  get chart(){ return this._chart }
-  private _chart:ElementRef<HTMLElement>
-
-  @Input() public dataType: platformDataType
-
-  @Input()
-  set data(data:GraphDataFeatureIndexed){
-    this.generatePlatformDataFilterAvailable(data)
-    this._data = data;
-    this.data$.next(data)
-  }
-  get data(){ return this._data }
-  private _data: any
-
+export class PlatformDataChartComponent{
   constructor() {
-    this.isChartData = undefined
-    this.data$ = new ReplaySubject<any>(1)
-    this.chart$ = new Subject<ElementRef<HTMLElement>>()
-    this.platformDataFilterAvailable = {
-      year: [],
-      syndrome: [],
-      variable: [],
-    }
-    this.isPlatformDataUpdated$ = new ReplaySubject<boolean>()
+    // Init filter
+    effect(()=>!!this.chart() && !!this.filterAvailable() && this.filterChange(), {allowSignalWrites: true})
+    // Generate chart on filter change
+    effect(()=> this.currentFilter() && this.hasData() && this.generateChart(), {allowSignalWrites: true})
   }
-  ngOnInit(): void {
-    combineLatest([this.chart$, this.data$]).subscribe(([chart, data]: [ElementRef<HTMLElement>, GraphDataFeatureIndexed])=>{
-      this.generateChart(chart, data, this.platformDataFilter)
-      this.isPlatformDataUpdated$.next(this.checkIsPlatformDataUpdated(data))
+
+  // Inputs
+  public dataType: InputSignal<platformDataType> = input();
+  public data: InputSignal<GraphDataFeatureIndexed> = input();
+
+  // Queries
+  @ViewChild('chart', {read: ElementRef}) private set _chart(el: ElementRef<HTMLElement>) {this.chart.set(el.nativeElement)}
+  private chart: WritableSignal<HTMLElement> = signal(undefined)
+
+  // Properties
+  public hasData: Signal<boolean> = computed(()=>!isEmpty(this.data()))
+  public hasRendered: WritableSignal<boolean> = signal(undefined)
+  public isLoading: Signal<boolean> = computed(()=>!this.data() && !this.hasRendered())
+
+  public filterAvailable: Signal<platformDataFilterAvailable> = computed(()=>this.hasData() && this.getPlatformDataFilterAvailable(this.data()))
+  public currentFilter: WritableSignal<PlatformDataFilter> = signal({} as PlatformDataFilter)
+
+  private chartInstance: WritableSignal<c3.ChartAPI> = signal(undefined)
+
+  // Methods
+  private getPlatformDataFilterAvailable(data: GraphDataFeatureIndexed){
+    // Get the available filter from the data object keys (format: year|syndrome|variable)
+    let filterAvailable = Object.keys(data).reduce((acc:platformDataFilterAvailable, index:string)=>{
+      let [season, syndrome, variable] = index.split('|')
+      return {
+        year: season !== '_' ? [...acc.year, Number(season)] : acc.year,
+        syndrome: syndrome !== '_' ? [...acc.syndrome, syndrome as PlatformDataSyndrome] : acc.syndrome,
+        variable: variable !== '_' ? [...acc.variable, variable as PlatformDataVariable] : acc.variable,
+      }
+    }, {year: [], syndrome: [], variable: []})
+
+    // Remove the duplicates and sort the year in descending order
+    return {
+      year: [...new Set(filterAvailable.year)].sort().reverse(),
+      syndrome: [...new Set(filterAvailable.syndrome)],
+      variable: [...new Set(filterAvailable.variable)],
+    }
+  }
+
+  public filterChange(value: Partial<PlatformDataFilter> = {}){
+    // Update the current filters with the new value
+    // keep the current value if the new value if the new value is undefined
+    // set default value if the current value is undefined (default value is the first value of the available filter)
+    this.currentFilter.update((filter:PlatformDataFilter)=>{
+      return new PlatformDataFilter(
+        value.year || filter.year || this.filterAvailable().year[0],
+        value.syndrome || filter.syndrome || this.filterAvailable().syndrome[0],
+        value.variable || filter.variable || this.filterAvailable().variable[0]
+      )
     })
   }
 
-  public filterChange(){ this.generateChart(undefined, undefined, this.platformDataFilter) }
+  // Triggered when just before the chart start rendering
+  private onBeforeRender(){ this.hasRendered.set(false) }
+  // Triggered when the chart has finished rendering
+  private onAfterRender(){ this.hasRendered.set(true) }
+
   public generateChart(
-    chartDiv:ElementRef<HTMLElement>=this.chart,
-    data: GraphDataFeatureIndexed=this.data,
-    dataFilter: PlatformDataFilter=this.platformDataFilter
+    chart:HTMLElement=this.chart(),
+    data: GraphDataFeatureIndexed|null=this.data(),
+    dataFilter: PlatformDataFilter=this.currentFilter()
   ){
+    // Trigger the onBeforeRender event
+    this.onBeforeRender()
 
-    this.isChartDataEmpty = typeof data === 'object' && data != null && Object.keys(data).length == 0
+    // Get the index corresponding to the actual filter
+    // Used to retrieve the data from the graphDataFeatureIndexed
+    let index = PlatformFeature.statsToIndex(dataFilter.year, dataFilter.syndrome, dataFilter.variable, this.dataType())
+    let chartData = !!data && data[index]
 
-    let index = PlatformDataTransformer.platformDataStatsToIndex(dataFilter.year, dataFilter.syndrome, dataFilter.variable, this.dataType)
-    let chartData = data[index]
-
-    let isChartData = !!chartData && !!chartData.rows
-      && PlatformDataTransformer.hasPlatformDataFeatureData(chartData.rows, this.dataType, dataFilter.year.toString())
-
-    if(!isChartData) this.isChartData = false
-    else{
-      this.isChartData = false
-      this.chartAPI && this.chartAPI.unload()
-      this.chartAPI = c3.generate({
-        bindto: chartDiv.nativeElement,
+    if(!!chartData && !!chart){
+      this.chartInstance.set(c3.generate({
+        bindto: chart,
+        svg: { classname: 'svg-chart' },
         data: {
           // @ts-ignore
-          json: chartData.rows,
-          keys: {
-            value: ['max', 'min', 'value']
-          },
+          json: chartData,
+          keys: { value: ['max', 'min', 'value'] },
           types: {max: 'area', min: 'area', value: "line"},
           color(color: string, d: DataSeries | DataPoint){ return  d.id === 'value' ? '#555' : '#bbb'},
         },
+        resize: {auto: true},
         axis: {
           x: {
             type: 'category',
             tick: {
               format: (d:any)=>{
-                let dataPoint = chartData.rows[d]
+                let dataPoint = chartData[d]
                 if(dataPoint instanceof PlatformDataVisitsCumulated){ return `${dataPoint.season}` }
                 return dataPoint.week == 1
                   ? ` ${dataPoint.year}`
@@ -127,73 +143,14 @@ export class PlatformDataChartComponent implements OnInit {
             show:false
           }
         },
-        onrendered: ()=>{ this.isChartData = true }
-      });
-    }
-  }
-
-  public generatePlatformDataFilterAvailable(data:any){
-    let defaultFilters = undefined
-
-    // Find filters for most recent data
-    for(let index in data){
-      let stats = PlatformDataTransformer.platformDataIndexToStats(index)
-
-      if(PlatformDataTransformer.hasPlatformDataFeatureData(data[index].rows, this.dataType, stats.season)){
-        let hasBoth = (x)=>x.syndrome === 'covid.ecdc' && x.variable === 'visit.emergency'
-        let hasOne = (x)=>x.syndrome === 'covid.ecdc' || x.variable === 'visit.emergency'
-
-        let active = ()=>this.dataType === 'active' && Number(stats.season || '0') >= defaultFilters.year
-        let incidence = ()=>this.dataType === 'incidence' && hasOne(stats) && Number(stats.season || '0') >= defaultFilters.year
-        let cumulated = ()=>this.dataType === 'visits_cumulated' && (!hasBoth(defaultFilters) && (hasBoth(stats) || hasOne(stats)))
-
-        // If this is newer than defaulFilters set this stats as defaultfilters
-        if(!defaultFilters || cumulated() || incidence() || active()){
-          defaultFilters = new PlatformDataFilter(
-            Number(stats.season),
-            stats.syndrome as PlatformDataSyndrome,
-            stats.variable as PlatformDataVariable
-          )
+        transition: {
+          duration: null
+        },
+        onrendered: ()=>{
+          // Trigger the onAfterRender event
+          this.onAfterRender()
         }
-      }
-
-      for(let record of data[index].rows){
-        record.season && this.platformDataFilterAvailable.year.push(Number(record.season))
-        record.syndrome && this.platformDataFilterAvailable.syndrome.push(record.syndrome)
-        record.variable && this.platformDataFilterAvailable.variable.push(record.variable)
-      }
-    }
-    this.platformDataFilterAvailable.year = [...new Set(this.platformDataFilterAvailable.year)].sort().reverse()
-    this.platformDataFilterAvailable.syndrome = [...new Set(this.platformDataFilterAvailable.syndrome)]
-    this.platformDataFilterAvailable.variable = [...new Set(this.platformDataFilterAvailable.variable)]
-
-    this.platformDataFilter = defaultFilters || new PlatformDataFilter()
-  }
-
-  public checkIsPlatformDataUpdated(data: GraphDataFeatureIndexed){
-    let isStartOfSeason= PlatformDataTransformer.isStartOfSeason()
-    let currentYear = moment().year()
-    let lastYear = currentYear-1
-    let newDataLimit = moment().subtract(4, 'week').format('YYYYww')
-
-    if(this.dataType === 'visits_cumulated'){
-      return flow(
-        mapValues((feature: GraphDataFeature)=>
-          feature.rows.some((row: platformDataResponseFeature)=>row.season===(isStartOfSeason ? currentYear : lastYear))
-        ),
-        toArray,
-        some((x)=>!!x)
-      )(data)
-    }
-    else{
-      return flow(
-        entries,
-        mapValues(([index, feature]: [string, GraphDataFeature])=>
-           feature.rows.some((row: platformDataResponseFeature)=>row.yw>=newDataLimit)
-        ),
-        toArray,
-        some((x)=>!!x)
-      )(data)
+      }))
     }
   }
 }

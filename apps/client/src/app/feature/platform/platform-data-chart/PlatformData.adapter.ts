@@ -1,21 +1,22 @@
-import * as moment from "moment";
+// import * as moment from "moment";
+import moment from "moment";
 import {flow, sum, sumBy, values} from "lodash";
 import {filter, groupBy, map, orderBy, reduce} from "lodash/fp";
 import {
   PlatformDataActive,
   PlatformDataIncidence,
-  platformDataResponseFeature,
+  platformDataFeature,
   PlatformDataVisitsCumulated
 } from "@models/PlatformData";
 
 
 
-export const platformDataAdapter = (data: platformDataResponseFeature[], dataFilter:PlatformDataFilter)=>{
+export const platformDataAdapter = (data: platformDataFeature[], dataFilter:PlatformDataFilter)=>{
   let adapted = platformDataAdapter2(data, dataFilter)
   return adapted
 }
 
-export const platformDataAdapter2 = (data: platformDataResponseFeature[], dataFilter:PlatformDataFilter)=>{
+export const platformDataAdapter2 = (data: platformDataFeature[], dataFilter:PlatformDataFilter)=>{
   let syndrome = dataFilter.syndrome
   let variable = dataFilter.variable
   let endYear = dataFilter.year
@@ -24,7 +25,7 @@ export const platformDataAdapter2 = (data: platformDataResponseFeature[], dataFi
   let endWeek = moment().year(endYear).month(8).endOf('month').startOf('isoWeek').isoWeek()
 
   let filteredData = flow(
-    filter((e:platformDataResponseFeature)=>e.year === startYear && e.week >= startWeek || e.year === endYear && e.week <= endWeek)
+    filter((e:platformDataFeature)=>e.year === startYear && e.week >= startWeek || e.year === endYear && e.week <= endWeek)
   )(data)
 
   let results = []

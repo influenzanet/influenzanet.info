@@ -1,0 +1,80 @@
+@import "theme-variables";
+@import "global";
+
+.country-section-title{
+  @extend .color-main;
+  @extend .space-x;
+  @extend .b-1;
+  @extend .font-m;
+  @extend .bold;
+}
+
+
+.country{
+  //@extend .tb-2;
+  @extend .tb-3;
+  @extend .bg-base-accent;
+
+  &:nth-child(2n){ @extend .bg-base-light; }
+  &:last-child{ @extend .b-6; }
+
+  .subtitle{
+    @extend .space-x;
+    @extend .b-1;
+  }
+}
+
+
+.country-links{
+  @extend .space-x;
+  @extend .b-3;
+  flex-wrap: nowrap;
+
+  .country-link{
+    @extend .r-0;
+    @extend .l-0;
+    @extend .mr-0;
+    @extend .mb-0;
+
+    text-decoration: underline;
+    display: inline-flex;
+
+    @media all and (min-width: $mobile-space-break){
+      &:first-child{ padding-left: 0; }
+      &:last-child{ padding-right: 0; }
+    }
+    @media all and (max-width: $mobile-space-break){
+      text-decoration: none!important;
+      border-radius: 5px;
+      border: solid 1px;
+
+      border-color: $color-accent;
+      background-color: white;
+      color: $color-accent;
+
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+  }
+}
+
+.loader-container{
+  @extend .space-x;
+  @extend .t-3;
+  @extend .b-4;
+  @extend .bg-base-accent;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    @extend .color-main;
+    @extend .font-xl;
+    @extend .b-1;
+
+    font-weight: bold;
+  }
+}

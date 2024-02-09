@@ -15,7 +15,7 @@ x-options: &options
 
 services:
   node-build:
-    image: node:16.13.0
+    image: node:18.16.0
     working_dir: /app
     volumes:
       - ../../../:/app

@@ -1,0 +1,330 @@
+[
+  {
+    "id": 1,
+    "title": "Are People Optimistically Biased about the Risk of COVID-19 infection? Lessons from the first wave of the pandemic in Europe",
+    "authors": "K. McColl, M. Debin, C. Souty, C. Guerrisi, C. Turbelin, A. Falchi, I. Bonmarin, D. Paolotti , C. Obi, J. Duggan, Y. Moreno , A. Wisniak, A. Flahault, T. Blanchon, V. Colizza, J. Raude",
+    "publisher": "International Journal of Environmental Research and Public Health 19 (1), 436 (2021)",
+    "publicationDate": "2021-12-30T23:00:00.000Z",
+    "url": "https://www.mdpi.com/1660-4601/19/1/436/htm"
+  },
+  {
+    "id": 2,
+    "title": "Factors associated with influenza-like-illness: a crowdsourced cohort study from 2012/13 to 2017/18.",
+    "authors": "C. Guerrisi, M. Ecollan, C. Souty, L. Rossignol, C. Turbelin, M. Debin, T. Goronflot, P.Y. Boëlle, T. Hanslik, V. Colizza, T. Blanchon.",
+    "publisher": "BMC Public Health 19:879 (2019)",
+    "publicationDate": "2019-07-03T22:00:00.000Z",
+    "url": "https://doi.org/10.1186/s12889-019-7174-6"
+  },
+  {
+    "id": 3,
+    "title": "Underdetection of cases of COVID-19 in France threatens epidemic control",
+    "authors": "Pullano, G., Di Domenico, L., Sabbatini, C.E. et al.",
+    "publisher": "Nature 590, 134–139 (2021)",
+    "publicationDate": "2021-02-03T23:00:00.000Z",
+    "url": "https://www.nature.com/articles/s41586-020-03095-6"
+  },
+  {
+    "id": 4,
+    "title": "SARS-CoV-2 infection in London, England: changes to community point prevalence around lockdown time, March-May 2020.",
+    "authors": "Edelstein, Michael et al.",
+    "publisher": "Journal of epidemiology and community health vol. 75,2 (2021): 185-188.",
+    "publicationDate": "2021-01-07T23:00:00.000Z",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/33004659/"
+  },
+  {
+    "id": 5,
+    "title": "Risk factors associated with the incidence of self-reported COVID-19-like illness: Data from a web-based syndromic surveillance system in the Netherlands",
+    "authors": "McDonald, S., Van den Wijngaard, C., Wielders, C., Friesema, I., Soetens, L., Paolotti, D., Van Hoek, A.",
+    "publisher": "Epidemiology and Infection, 149, E129.",
+    "publicationDate": "2021-05-18T22:00:00.000Z",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/34006340/"
+  },
+  {
+    "id": 6,
+    "title": "Population perception of mandatory childhood vaccination programme before its implementation, France, 2017. ",
+    "authors": "P. Mathieu, A. Gautier, J. Raude, T. Goronflot, T. Launay, M. Debin, C. Guerrisi, C. Turbelin, T. Hanslik, C. Jestin, V. Colizza, T. Blanchon, L. Rossignol.",
+    "publisher": "Blanchon, L. Rossignol.",
+    "publicationDate": "2019-06-19T22:00:00.000Z",
+    "url": "https://doi.org/10.2807/1560-7917.ES.2019.24.25.1900053"
+  },
+  {
+    "id": 7,
+    "title": "Global flu view: a platform to connect crowdsourced disease surveillance around the world.",
+    "authors": "A.W. Crawley, D. Paolotti, C. Dalton, J. Brownstein, M. Smolinski. ",
+    "publisher": "International Journal of Infectious Diseases, 79:7 (2019)",
+    "publicationDate": "2019-01-31T23:00:00.000Z",
+    "url": "https://doi.org/10.1016/j.ijid.2018.11.036"
+  },
+  {
+    "id": 8,
+    "title": "A topological data analysis approach to influenza-like-illness.",
+    "authors": "J.P. Costa, P. Škraba, D. Paolotti, R. Mexia.",
+    "publisher": "Proceedings of the ACM SIGKDD Workshop on Epidemiology meets Data Mining and Knowledge Discovery (epiDAMIK) (2018)",
+    "publicationDate": "2018-08-19T22:00:00.000Z",
+    "url": null
+  },
+  {
+    "id": 9,
+    "title": "Healthcare-seeking behaviour in case of influenza-like illness in the French general population and factors associated with a GP consultation: an observational prospective study.",
+    "authors": "M. Ariza, C. Guerrisi, C. Souty, L. Rossignol, C. Turbelin, T. Hanslik, V. Colizza, T. Blanchon.",
+    "publisher": "BJGP Open, 1(4): bjgpopen17X101253 (2018)",
+    "publicationDate": "2018-01-03T23:00:00.000Z",
+    "url": "https://doi.org/10.3399/bjgpopen17X101253"
+  },
+  {
+    "id": 10,
+    "title": "Research ethics in the European Influenzanet consortium: Scoping review.",
+    "authors": "L.D. Geneviève, T. Wangmo, D. Dietrich, O. Woolley-Meza, A. Flahault, B.S. Elger.",
+    "publisher": "JMIR Public Health Surveillance, 4(4):e67 (2018)",
+    "publicationDate": "2018-10-09T22:00:00.000Z",
+    "url": "https://doi.org/10.2196/publichealth.9616"
+  },
+  {
+    "id": 11,
+    "title": "Self-Swabbing for virological confirmation of influenza-like illness among an Internet-based cohort in the UK during the 2014-2015 flu season: Pilot study.",
+    "authors": "C. Wenham, E.R. Gray, C.E. Keane, M. Donati, D. Paolotti, R. Pebody, E. Fragaszy, R.A. McKendry, W.J. Edmunds.",
+    "publisher": "Journal of Medical Internet Research, 20(3):e71 (2018)",
+    "publicationDate": "2018-02-28T23:00:00.000Z",
+    "url": "https://doi.org/10.2196/jmir.9084"
+  },
+  {
+    "id": 13,
+    "title": "The potential value of crowdsourced surveillance systems in supplementing sentinel influenza networks: the case of France.",
+    "authors": "C. Guerrisi, C. Turbelin, C. Souty, C. Poletto, T. Blanchon, T. Hanslik, I. Bonmarin, D. Levy-Bruhl, V. Colizza.",
+    "publisher": "Eurosurveillance, 23(25) (2018)",
+    "publicationDate": "2018-06-20T22:00:00.000Z",
+    "url": "https://doi.org/10.2807/1560-7917.ES.2018.23.25.1700337"
+  },
+  {
+    "id": 14,
+    "title": "Combining participatory influenza surveillance with modeling and forecasting: Three alternative approaches.",
+    "authors": "J.S. Brownstein, S. Chu, A. Marathe, M.V. Marathe, A.T. Nguyen, D. Paolotti, N. Perra, D. Perrotta, M. Santillana, S. Swarup, M. Tizzoni, A. Vespignani, A.K.S. Vullikanti, M.L. Wilson, Q. Zhang.",
+    "publisher": "JMIR Public Health and Surveillance, 3(4):e83 (2017)",
+    "publicationDate": "2017-10-31T23:00:00.000Z",
+    "url": "https://doi.org/10.2196/publichealth.7344"
+  },
+  {
+    "id": 15,
+    "title": "Disease severity determines health-seeking behaviour amongst individuals with influenza-like illness in an internet-based cohort.",
+    "authors": "M. Peppa, W.J. Edmunds, S. Funk.",
+    "publisher": "BMC infectious diseases, 17(1):238 (2017)",
+    "publicationDate": "2017-03-30T22:00:00.000Z",
+    "url": "https://doi.org/10.1186/s12879-017-2337-5"
+  },
+  {
+    "id": 16,
+    "title": "Influenzanet: Citizens among 10 countries collaborating to monitor influenza in Europe.",
+    "authors": "C. E. Koppeschaar, V. Colizza, C. Guerrisi, C. Turbelin, J. Duggan, W.J. Edmunds, C. Kjelsø, R. Mexia, Y. Moreno, S. Meloni, D. Paolotti, D. Perrotta, E. van Straten, A.O. Franco.",
+    "publisher": "JMIR Public Health and Surveillance, 3(3):e66 (2017)",
+    "publicationDate": "2017-09-18T22:00:00.000Z",
+    "url": "https://doi.org/10.2196/publichealth.7429"
+  },
+  {
+    "id": 17,
+    "title": "Participatory online surveillance as a supplementary tool to sentinel doctors for influenza-like illness surveillance in Italy.",
+    "authors": "D. Perrotta, A. Bella, C. Rizzo, D. Paolotti.",
+    "publisher": "PloS one, 12(1):e0169801 (2017)",
+    "publicationDate": "2017-01-10T23:00:00.000Z",
+    "url": "https://doi.org/10.1371/journal.pone.0169801"
+  },
+  {
+    "id": 18,
+    "title": "Using participatory Web-based surveillance data to improve seasonal influenza forecasting in Italy.",
+    "authors": "D. Perrotta, M. Tizzoni, D. Paolotti",
+    "publisher": "In Proceedings of the 26th International Conference on World Wide Web, pages 303-310",
+    "publicationDate": "2017-04-02T22:00:00.000Z",
+    "url": "https://doi.org/10.1145/3038912.3052670"
+  },
+  {
+    "id": 19,
+    "title": "First nationwide web-based surveillance system for influenza-like illness in pregnant women: participation and representativeness of the French G-GrippeNet cohort.",
+    "authors": "P. Loubet, C. Guerrisi, C. Turbelin, B. Blondel, O. Launay, M. Bardou, T. Blanchon, I. Bonmarin, F. Goffinet, P. Ancel, V. Colizza, T. Hanslik, S. Kernéis.",
+    "publisher": "BMC Public Health, 16(1):253 (2016)",
+    "publicationDate": "2016-03-10T23:00:00.000Z",
+    "url": "https://doi.org/10.1186/s12889-016-2899-y"
+  },
+  {
+    "id": 20,
+    "title": "Influenza during pregnancy: Incidence, vaccination coverage and attitudes toward vaccination in the French web-based cohort G-GrippeNet.",
+    "authors": "P. Loubet, C. Guerrisi, C. Turbelin, B. Blondel, O. Launay, M. Bardou, F. Goffinet, V. Colizza, T. Hanslik, S. Kernéis.",
+    "publisher": "Vaccine, 34(20):2390 (2016)",
+    "publicationDate": "2016-04-28T22:00:00.000Z",
+    "url": "https://doi.org/10.1016/j.vaccine.2016.03.034"
+  },
+  {
+    "id": 21,
+    "title": "Influmeter – an online tool for self-reporting of influenza-like illness in Denmark.",
+    "authors": "C. Kjelsø, M. Galle, H. Bang, S. Ethelberg, T.G. Krause.",
+    "publisher": "Infectious Diseases, 48(4):322 (2016)",
+    "publicationDate": "2016-03-31T22:00:00.000Z",
+    "url": "https://doi.org/10.3109/23744235.2015.1122224"
+  },
+  {
+    "id": 22,
+    "title": "Participatory syndromic surveillance of influenza in Europe.",
+    "authors": "C. Guerrisi, C. Turbelin, T. Blanchon, T. Hanslik, I. Bonmarin, D. Levy-Bruhl, D. Perrotta, D. Paolotti, R. Smallenburg, C.E. Koppeschaar, A.O. Franco, R. Mexia, W.J. Edmunds, B. Sile, R. Pebody, E. van Straten, S. Meloni, Y. Moreno, J. Duggan, C. Kjelsø, V. Colizza.",
+    "publisher": "Journal of Infectious Diseases, 214(suppl 4):S386-S392 (2016)",
+    "publicationDate": "2016-03-31T22:00:00.000Z",
+    "url": "https://doi.org/10.1093/infdis/jiw280"
+  },
+  {
+    "id": 23,
+    "title": "Opinion about seasonal influenza vaccination among the general population 3 years after the A(H1N1)pdm2009 influenza pandemic.",
+    "authors": "K. Boiron, M. Sarazin, M. Debin, J. Raude, L. Rossignol, C. Guerrisi, D. Odinkemelu, T. Hanslik, V. Colizza, T. Blanchon.",
+    "publisher": "Vaccine, 33(48):6849",
+    "publicationDate": "2015-11-26T23:00:00.000Z",
+    "url": "https://doi.org/10.1016/j.vaccine.2015.08.067"
+  },
+  {
+    "id": 24,
+    "title": "Social data mining and seasonal influenza forecasts: The FluOutlook platform.",
+    "authors": "Q. Zhang, C. Gioannini, D. Paolotti, N. Perra, D. Perrotta, M. Quaggiotto, M. Tizzoni, A. Vespignani.",
+    "publisher": "In Joint European Conference on Machine Learning and Knowledge Discovery in Databases, pages 237-240. Springer",
+    "publicationDate": "2015-08-28T22:00:00.000Z",
+    "url": "https://doi.org/10.1007/978-3-319-23461-8_21"
+  },
+  {
+    "id": 25,
+    "title": "Ten-year performance of influenzanet: ILI time series, risks, vaccine effects, and care-seeking behaviour.",
+    "authors": "S.P. van Noort, C.T. Codeço, C.E. Koppeschaar, M. Van Ranst, D. Paolotti, M.G.M. Gomes.",
+    "publisher": "Epidemics, 13:28-36",
+    "publicationDate": "2015-11-30T23:00:00.000Z",
+    "url": "https://doi.org/10.1016/j.epidem.2015.05.001"
+  },
+  {
+    "id": 26,
+    "title": "Association between recruitment methods and attrition in Internet-based studies.",
+    "authors": "P. Bajardi, D. Paolotti, A. Vespignani, K. Eames, S. Funk, W. J. Edmunds, C. Turbelin, M. Debin, V. Colizza, R. Smallenburg, C.E. Koppeschaar, A.O. Franco, V. Faustino, A. Carnahan, M. Rehn, F. Merletti, J. Douwes, R. Firestone, L. Richiardi.",
+    "publisher": "PloS one, 9(12):e114925",
+    "publicationDate": "2014-12-08T23:00:00.000Z",
+    "url": "https://doi.org/10.1371/journal.pone.0114925"
+  },
+  {
+    "id": 27,
+    "title": "Determinants of follow-up participation in the Internet-based European influenza surveillance platform Influenzanet.",
+    "authors": "P. Bajardi, A. Vespignani, S. Funk, K. T. Eames, W. J. Edmunds, C. Turbelin, M. Debin, V. Colizza, R. Smallenburg, C. E. Koppeschaar, A.O. Franco, V. Faustino, A. Carnahan, M. Rehn, D. Paolotti.",
+    "publisher": "Journal of medical Internet research, 16(3):e78 (2014)",
+    "publicationDate": "2014-03-09T23:00:00.000Z",
+    "url": "https://doi.org/10.2196/jmir.3010"
+  },
+  {
+    "id": 28,
+    "title": "Effectiveness of 2012-2013 influenza vaccine against influenza-like illness in general population: Estimation in a French web-based cohort.",
+    "authors": "M. Debin, V. Colizza, T. Blanchon, T. Hanslik, C. Turbelin, and A. Falchi.",
+    "publisher": "Human vaccines & immunotherapeutics, 10(3):536-543 (2014)",
+    "publicationDate": "2014-02-28T23:00:00.000Z",
+    "url": "https://doi.org/10.4161/hv.27439"
+  },
+  {
+    "id": 29,
+    "title": "Incidence and risk factors for influenza-like-illness in the UK: online surveillance using Flusurvey.",
+    "authors": "A.J. Adler, K.T. Eames, S. Funk, W.J. Edmunds.",
+    "publisher": "BMC infectious diseases, 14(1):232 (2014)",
+    "publicationDate": "2014-04-30T22:00:00.000Z",
+    "url": "https://doi.org/10.1186/1471-2334-14-232"
+  },
+  {
+    "id": 30,
+    "title": "The representativeness of a European multi-center network for influenza-like-illness participatory surveillance.",
+    "authors": "P. Cantarelli, M. Debin, C. Turbelin, C. Poletto, T. Blanchon, A. Falchi, T. Hanslik, I. Bonmarin, D. Levy-Bruhl, A. Micheletti, D. Paolotti, A. Vespignani, J. Edmunds, K. Eames, R. Smallenburg, C.E. Koppeschaar, A.O. Franco, V. Faustino, A. Carnahan, M. Rehn, V. Colizza.",
+    "publisher": "BMC public health, 14(1):1 (2014)",
+    "publicationDate": "2014-09-19T22:00:00.000Z",
+    "url": "https://doi.org/10.1186/1471-2458-14-984"
+  },
+  {
+    "id": 31,
+    "title": "Utilizing syndromic surveillance data for estimating levels of influenza circulation.",
+    "authors": "O. Patterson-Lomba, S.P. van Noort, B.J. Cowling, J. Wallinga, M.G.M. Gomes, M. Lipsitch, E. Goldstein",
+    "publisher": "American journal of epidemiology, 179(11):1394-1401 (2014)",
+    "publicationDate": "2014-05-31T22:00:00.000Z",
+    "url": "https://doi.org/10.1093/aje/kwu061"
+  },
+  {
+    "id": 32,
+    "title": "Web-based participatory surveillance of infectious diseases: the influenzanet participatory surveillance experience.",
+    "authors": "D. Paolotti, A. Carnahan, V. Colizza, K. Eames, W.J. Edmunds, M.G.M. Gomes, C.E. Koppeschaar, M. Rehn, R. Smallenburg, C. Turbelin, S. van Noort and A. Vespignani.",
+    "publisher": "Clinical Microbiology and Infection, 20(1):17-21 (2014)",
+    "publicationDate": "2013-12-31T23:00:00.000Z",
+    "url": "https://doi.org/10.1111/1469-0691.12477"
+  },
+  {
+    "id": 33,
+    "title": "Eight years of the Great Influenza Survey to monitor influenza-like illness in Flanders.",
+    "authors": "Y. Vandendijck, C. Faes, and N. Hens.",
+    "publisher": "PLoS One, 8(5):e64156 (2013)",
+    "publicationDate": "2013-05-16T22:00:00.000Z",
+    "url": "https://doi.org/10.1371/journal.pone.0064156"
+  },
+  {
+    "id": 34,
+    "title": "Evaluating the feasibility and participants’ representativeness of an online nationwide surveillance system for influenza in France.",
+    "authors": "M. Debin, C. Turbelin, T. Blanchon, I. Bonmarin, A. Falchi, T. Hanslik, D. Levy-Bruhl, C. Poletto, V. Colizza, Y. Moreno.",
+    "publisher": "PLoS ONE, 8(9);e73675 (2013)",
+    "publicationDate": "2013-09-10T22:00:00.000Z",
+    "url": "https://doi.org/10.1371/journal.pone.0073675"
+  },
+  {
+    "id": 35,
+    "title": "Rapid assessment of influenza vaccine effectiveness: Analysis of an internet-based cohort.",
+    "authors": "K.T.D. Eames, E. Brooks-Pollock, D. Paolotti, M. Perosa, C. Gioannini and W.J. Edmunds.",
+    "publisher": "Epidemiology and Infection, 140(7):1309-1315 (2012)",
+    "publicationDate": "2011-09-11T22:00:00.000Z",
+    "url": "https://doi.org/10.1017/S0950268811001804"
+  },
+  {
+    "id": 36,
+    "title": "Using the Internet to estimate influenza vaccine effectiveness.",
+    "authors": "W.J. Edmunds, S. Funk.",
+    "publisher": "Expert review of vaccines, 11(9):1027-1029 (2012)",
+    "publicationDate": "2012-10-31T23:00:00.000Z",
+    "url": "https://doi.org/10.1586/erv.12.88"
+  },
+  {
+    "id": 37,
+    "title": "Using an online survey of healthcare-seeking behaviour to estimate the magnitude and severity of the 2009 H1N1v influenza epidemic in England.",
+    "authors": "E. Brooks-Pollock, N. Tilston, W.J. Edmunds, K.T. Eames.",
+    "publisher": "BMC infectious diseases, 11(1):1 (2011)",
+    "publicationDate": "2011-03-15T23:00:00.000Z",
+    "url": "https://doi.org/10.1186/1471-2334-11-68"
+  },
+  {
+    "id": 38,
+    "title": "Internet-based monitoring system for influenza-like illness: H1N1 surveillance in Italy.",
+    "authors": "D. Paolotti, C. Gioannini, V. Colizza, A. Vespignani.",
+    "publisher": "In Proceedings of the 3rd International ICST Conference on Electronic Healthcare for the 21st century. Casablanca, pages 13-15 (2010)",
+    "publicationDate": "2010-09-19T22:00:00.000Z",
+    "url": null
+  },
+  {
+    "id": 39,
+    "title": "Internet-based surveillance of influenza-like-illness in the UK during the 2009 H1N1 influenza pandemic.",
+    "authors": "N.L. Tilston, K.T. Eames, D. Paolotti, T. Ealden, W.J. Edmunds.",
+    "publisher": "BMC Public Health, 10(1):650 (2010)",
+    "publicationDate": "2010-10-26T22:00:00.000Z",
+    "url": "https://doi.org/10.1186/1471-2458-10-650"
+  },
+  {
+    "id": 40,
+    "title": "Internet-based monitoring of influenza-like illness in the general population: Experience of five influenza seasons in The Netherlands.",
+    "authors": "I.H.M. Friesema, C.E. Koppeschaar, G.A. Donker, F. Dijkstra, S.P. van Noort, R. Smallenburg, W. van der Hoek, M.A.B. van der Sande.",
+    "publisher": "Vaccine, 27(45):6353-6357 (2009)",
+    "publicationDate": "2009-10-22T22:00:00.000Z",
+    "url": "https://doi.org/10.1016/j.vaccine.2009.05.042"
+  },
+  {
+    "id": 41,
+    "title": "Gripenet: an internet-based system to monitor influenza-like illness uniformly across Europe.",
+    "authors": "S.P. van Noort , M. Muehlen, H. Rebelo de Andrade, C.E. Koppeschaar, J.M. Lima Lourenço, M.G.M. Gomes.",
+    "publisher": "Euro Surveill,12(7):E5-6 (2007)",
+    "publicationDate": "2007-06-30T22:00:00.000Z",
+    "url": "https://doi.org/10.2807/esm.12.07.00722-en"
+  },
+  {
+    "id": 42,
+    "title": "Internet-based monitoring of influenza-like illness (ILI) in the general population of the Netherlands during the 2003-2004 influenza season.",
+    "authors": "R.L. Marquet, A.I.M. Bartelds, S.P. van Noort, C.E. Koppeschaar, J. Paget, F.G. Schellevis, J. van der Zee.",
+    "publisher": "BMC public health, 4;6:242 (2006)",
+    "publicationDate": "2006-10-03T22:00:00.000Z",
+    "url": "https://doi.org/10.1186/1471-2458-6-242"
+  }
+]

@@ -1,4 +1,8 @@
 :host{
   display: flex;
   flex-direction: column;
+
+  .main-content{
+    display: flex; flex-direction: column; flex: 1 1 1px;
+  }
 }

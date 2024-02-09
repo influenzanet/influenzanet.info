@@ -1,0 +1,249 @@
+[
+  {
+    "id": 1,
+    "name": "influmeter.dk",
+    "website": "https://influmeter.dk/",
+    "filePrefix": "DK",
+    "hidden": false,
+    "order": 140,
+    "countryId": 2,
+    "logo": {
+      "key": "logo/platform/influmeter_denmark_logo.png",
+      "mime": "image/png",
+      "size": "9415",
+      "bucket": "/app/assets/upload",
+      "filename": "influmeter_denmark_logo.png"
+    },
+    "websiteJoinLink": "https://input.influmeter.dk/Register",
+    "about": null,
+    "description": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;The Department of Infection Epidemiology, Statens Serum Institut (SSI), operates Influmeter with the aim of preventing and combating the influenza virus, including by monitoring the development of the disease. Influmeter is operated as part of the overall disease surveillance of respiratory diseases. Influmeter was launched in Denmark in 2013 and is part of the European influenza surveillance network, InfluenzaNet , which together follows and compares the incidence of influenza among the participating countries.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:4747,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0,&quot;15&quot;:&quot;\\&quot;Helvetica Neue\\&quot;&quot;}\">The Department of Infection Epidemiology, Statens Serum Institut (SSI), operates Influmeter with the aim of preventing and combating the influenza virus, including by monitoring the development of the disease. Influmeter is operated as part of the overall disease surveillance of respiratory diseases. Influmeter was launched in Denmark in 2013 and is part of the European influenza surveillance network, InfluenzaNet , which together follows and compares the incidence of influenza among the participating countries.</span></p>"
+  },
+  {
+    "id": 2,
+    "name": "covidmeter",
+    "website": "https://www.sundhed.dk/borger/corona/smitteopsporing/covidmeter/",
+    "filePrefix": "DKC",
+    "hidden": false,
+    "order": 145,
+    "countryId": 2,
+    "logo": {
+      "key": "logo/platform/covidmeter_denmark_logo.png",
+      "mime": "image/png",
+      "size": "13000",
+      "bucket": "/app/assets/upload",
+      "filename": "covidmeter_denmark_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p>COVIDmeter is a participatory surveillance system in Denmark</p>"
+  },
+  {
+    "id": 3,
+    "name": "flusurvey.net",
+    "website": "https://flusurvey.net/",
+    "filePrefix": "UK",
+    "hidden": false,
+    "order": 150,
+    "countryId": 4,
+    "logo": {
+      "key": "logo/platform/flusurvey_uk_logo.png",
+      "mime": "image/png",
+      "size": "11697",
+      "bucket": "/app/assets/upload",
+      "filename": "flusurvey_uk_logo.png"
+    },
+    "websiteJoinLink": "https://flusurvey.net/en/auth/signup",
+    "about": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;The data are collected and processed exclusively for the following purposes:\\n- Carrying out scientific research and statistical analyses on the spread of infectious diseases in the UK and Europe;\\n- Publishing statistical analyses, including graphical representations of the results;\\n- Providing you, the user, with information about the survey results via a News and Result page The personal data that we may process for these purposes are: Year of birth, month of birth, postcode, gender, family composition;\\n- Background data relevant to the risk of infection, i.e. data about whether you belong to a risk group recommended for flu vaccination, occupation and lifestyle;\\n- Data about symptoms provided in the symptoms questionnaire;\\nWe would also like to inform you that we will process your data in accordance with the applicable laws and regulations and with full respect for your rights and in particular your privacy (please see our privacy policy).&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:651,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16573901},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0}\" data-sheets-note=\"Estratto dal sito [Da verificare]\">The data are collected and processed exclusively for the following purposes:<br>- Carrying out scientific research and statistical analyses on the spread of infectious diseases in the UK and Europe;<br>- Publishing statistical analyses, including graphical representations of the results;<br>- Providing you, the user, with information about the survey results via a News and Result page The personal data that we may process for these purposes are: Year of birth, month of birth, postcode, gender, family composition;<br>- Background data relevant to the risk of infection, i.e. data about whether you belong to a risk group recommended for flu vaccination, occupation and lifestyle;<br>- Data about symptoms provided in the symptoms questionnaire;<br>We would also like to inform you that we will process your data in accordance with the applicable laws and regulations and with full respect for your rights and in particular your privacy (please see our privacy policy).</span></p>",
+    "description": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;FluSurvey is a webtool designed to monitor self-reported respiratory symptoms, social contact patterns and health service use in the general population in near-real time through a weekly survey of registered participants. It is a critical surveillance tool for influenza and COVID-19 and helps us better understand infection and illness in the community especially among those who do not use healthcare services.\\nIt is monitored by UK Health Protection Agency (UKHSA) formerly Public Health England and was originally set up during the swine flu pandemic in 2009 by researchers at the London School of Hygiene and Tropical Medicine. Also, it forms part of a Europe-wide initiative with eight other countries to monitor influenza-like illness (ILI) and Covid-19 activity.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:4747,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0,&quot;15&quot;:&quot;\\&quot;Helvetica Neue\\&quot;&quot;}\" data-sheets-note=\"Estratto dal sito [Da verificare]\">FluSurvey is a webtool designed to monitor self-reported respiratory symptoms, social contact patterns and health service use in the general population in near-real time through a weekly survey of registered participants. It is a critical surveillance tool for influenza and COVID-19 and helps us better understand infection and illness in the community especially among those who do not use healthcare services.<br>It is monitored by UK Health Protection Agency (UKHSA) formerly Public Health England and was originally set up during the swine flu pandemic in 2009 by researchers at the London School of Hygiene and Tropical Medicine. Also, it forms part of a Europe-wide initiative with eight other countries to monitor influenza-like illness (ILI) and Covid-19 activity.</span></p>"
+  },
+  {
+    "id": 4,
+    "name": "Infectieradar",
+    "website": "https://www.infectieradar.nl/",
+    "filePrefix": "NL",
+    "hidden": false,
+    "order": 130,
+    "countryId": 6,
+    "logo": {
+      "key": "logo/platform/Infectieradar_netherlands_logo.png",
+      "mime": "image/png",
+      "size": "15468",
+      "bucket": "/app/assets/upload",
+      "filename": "Infectieradar_netherlands_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;RIVM monitors the spread of infectious diseases in various ways. With Infectieradar we map whether people in the Netherlands have complaints that can indicate an infection with, for example, the coronavirus, flu virus or RS virus. Because corona is still among us, Infectieradar&rsquo;s focus is on the spread of the coronavirus.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:4747,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0,&quot;15&quot;:&quot;\\&quot;Helvetica Neue\\&quot;&quot;}\" data-sheets-note=\"Estratto dal sito [Da verificare]\">RIVM monitors the spread of infectious diseases in various ways. With Infectieradar we map whether people in the Netherlands have complaints that can indicate an infection with, for example, the coronavirus, flu virus or RS virus. Because corona is still among us, Infectieradar&rsquo;s focus is on the spread of the coronavirus.</span></p>"
+  },
+  {
+    "id": 5,
+    "name": "GrippeWeb",
+    "website": "https://grippeweb.rki.de/",
+    "filePrefix": "DE",
+    "hidden": false,
+    "order": 170,
+    "countryId": 7,
+    "logo": {
+      "key": "logo/platform/grippeWeb_germany_logo.png",
+      "mime": "image/png",
+      "size": "28049",
+      "bucket": "/app/assets/upload",
+      "filename": "grippeWeb_germany_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;GrippeWeb is an online portal of the Robert Koch Institute. It was founded in 2011 and is the first web portal that observes the activity of acute respiratory diseases in Germany, using information directly from the population.\\nWith the help of this data, the information from the Influenza Working Group (AGI) of the Robert Koch Institute, which closely collaborates with GrippeWeb, is complemented. The AGI monitors the activity of acute respiratory diseases at the level of primary care, i.e., when patients visit a doctor's practice. In contrast, GrippeWeb captures the proportion of the total population that is affected by acute respiratory infections week by week. It also asks whether the affected individuals have visited a medical practice due to their illness. The more people from the population participate in GrippeWeb and submit their report every week (sick/not sick), the more meaningful and stable the evaluations become.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:4747,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16573901},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0,&quot;15&quot;:&quot;\\&quot;Helvetica Neue\\&quot;&quot;}\" data-sheets-note=\"Traduzione non ufficiale\">GrippeWeb is an online portal of the Robert Koch Institute. It was founded in 2011 and is the first web portal that observes the activity of acute respiratory diseases in Germany, using information directly from the population.<br>With the help of this data, the information from the Influenza Working Group (AGI) of the Robert Koch Institute, which closely collaborates with GrippeWeb, is complemented. The AGI monitors the activity of acute respiratory diseases at the level of primary care, i.e., when patients visit a doctor's practice. In contrast, GrippeWeb captures the proportion of the total population that is affected by acute respiratory infections week by week. It also asks whether the affected individuals have visited a medical practice due to their illness. The more people from the population participate in GrippeWeb and submit their report every week (sick/not sick), the more meaningful and stable the evaluations become.</span></p>"
+  },
+  {
+    "id": 6,
+    "name": "gripenet.pt",
+    "website": "https://gripenet.pt/",
+    "filePrefix": "PT",
+    "hidden": false,
+    "order": 210,
+    "countryId": 10,
+    "logo": {
+      "key": "logo/platform/gripenet_portugal_logo.png",
+      "mime": "image/png",
+      "size": "17213",
+      "bucket": "/app/assets/upload",
+      "filename": "gripenet_portugal_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p>GripeNet (PT) is a participatory surveillance system in Portugal created by Instituto Nacional de Sa&uacute;de Dr. Ricardo Jorge</p>"
+  },
+  {
+    "id": 7,
+    "name": "flusurvey.ie",
+    "website": "https://flusurvey.ie/",
+    "filePrefix": "IE",
+    "hidden": false,
+    "order": 190,
+    "countryId": 9,
+    "logo": {
+      "key": "logo/platform/flusurvey_ireland_logo.png",
+      "mime": "image/png",
+      "size": "13337",
+      "bucket": "/app/assets/upload",
+      "filename": "flusurvey_ireland_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p>Flusurvey is a participatory surveillance system in Ireland</p>"
+  },
+  {
+    "id": 8,
+    "name": "gripenet.es",
+    "website": "https://www.gripenet.es/",
+    "filePrefix": "ES",
+    "hidden": false,
+    "order": 200,
+    "countryId": 8,
+    "logo": {
+      "key": "logo/platform/gripenet_spain_logo.png",
+      "mime": "image/png",
+      "size": "15870",
+      "bucket": "/app/assets/upload",
+      "filename": "gripenet_spain_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<div dir=\"ltr\">\r\n<div class=\"input-box\" spellcheck=\"false\">\r\n<div id=\"waffle-rich-text-editor\" class=\"cell-input editable\" dir=\"ltr\" tabindex=\"0\" role=\"combobox\" contenteditable=\"true\" aria-autocomplete=\"list\" aria-label=\"E20\">GripeNet (ES) is a participatory surveillance system in Spain</div>\r\n</div>\r\n</div>"
+  },
+  {
+    "id": 9,
+    "name": "grippenet.ch",
+    "website": "https://grippenet.ch/",
+    "filePrefix": "CH",
+    "hidden": false,
+    "order": 160,
+    "countryId": 5,
+    "logo": {
+      "key": "logo/platform/grippenet_switzerland_logo.png",
+      "mime": "image/png",
+      "size": "15906",
+      "bucket": "/app/assets/upload",
+      "filename": "grippenet_switzerland_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;Grippenet is a participatory surveillance system that contributes to the detection and surveillance of influenza-like-illnesses (ILIs) and COVID-19 in Switzerland. It aims to provide a better understanding of the transmission of these diseases. It is a project that was launched and implemented in Switzerland in 2016 in collaboration with the Institute of Global Health (ISG) of the Faculty of Medicine of the University of Geneva, the Laboratory of Computational Epidemiology (ISI, Turin), Computational Social Sciences (ETH, Z&uuml;rich), the Laboratory of Digital Epidemiology (EPFL, Lausanne) and the National Reference Center for Influenza (HUG, Geneva). Grippenet is part of a larger scale project, Influenzanet, which is a European monitoring system introduced in 2003 initially by the Netherlands and Belgium and later ratified by ten other European countries, including Switzerland in 2016. Since March 2020, Grippenet.ch also contributes to the monitoring of the COVID-19 pandemic.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:4747,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0,&quot;15&quot;:&quot;\\&quot;Helvetica Neue\\&quot;&quot;}\" data-sheets-note=\"Estratto dal sito [Da verificare]\">Grippenet is a participatory surveillance system that contributes to the detection and surveillance of influenza-like-illnesses (ILIs) and COVID-19 in Switzerland. It aims to provide a better understanding of the transmission of these diseases. It is a project that was launched and implemented in Switzerland in 2016 in collaboration with the Institute of Global Health (ISG) of the Faculty of Medicine of the University of Geneva, the Laboratory of Computational Epidemiology (ISI, Turin), Computational Social Sciences (ETH, Z&uuml;rich), the Laboratory of Digital Epidemiology (EPFL, Lausanne) and the National Reference Center for Influenza (HUG, Geneva). Grippenet is part of a larger scale project, Influenzanet, which is a European monitoring system introduced in 2003 initially by the Netherlands and Belgium and later ratified by ten other European countries, including Switzerland in 2016. Since March 2020, Grippenet.ch also contributes to the monitoring of the COVID-19 pandemic.</span></p>"
+  },
+  {
+    "id": 10,
+    "name": "influweb.org",
+    "website": "https://influweb.org/",
+    "filePrefix": "IT",
+    "hidden": false,
+    "order": 50,
+    "countryId": 1,
+    "logo": {
+      "key": "logo/platform/influweb_italy_logo.png",
+      "mime": "image/png",
+      "size": "8613",
+      "bucket": "/app/assets/upload",
+      "filename": "influweb_italy_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;Influweb is part of Influenzanet, a European network connecting various universities and government agencies that manage similar platforms. ISI Foundation coordinates this network. The purpose of Influenzanet is to map and monitor the symptoms of infections, such as the new coronavirus (COVID-19) and flu, among the general population in Europe. The data is used for scientific research about infections, and currently into the new coronavirus.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:651,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0}\" data-sheets-note=\"Estratto dal sito [Da verificare]\">Influweb is part of Influenzanet, a European network connecting various universities and government agencies that manage similar platforms. ISI Foundation coordinates this network. The purpose of Influenzanet is to map and monitor the symptoms of infections, such as the new coronavirus (COVID-19) and flu, among the general population in Europe. The data is used for scientific research about infections, and currently into the new coronavirus.</span></p>"
+  },
+  {
+    "id": 11,
+    "name": "grippenet.fr",
+    "website": "https://app.grippenet.fr/",
+    "filePrefix": "FR",
+    "hidden": false,
+    "order": 100,
+    "countryId": 3,
+    "logo": {
+      "key": "logo/platform/grippenet_france_logo.png",
+      "mime": "image/png",
+      "size": "13057",
+      "bucket": "/app/assets/upload",
+      "filename": "grippenet_france_logo.png"
+    },
+    "websiteJoinLink": "https://app.grippenet.fr/welcome?action=openSignupDialog",
+    "about": null,
+    "description": "<p><span data-sheets-root=\"1\" data-sheets-value=\"{&quot;1&quot;:2,&quot;2&quot;:&quot;GrippeNet.fr/COVIDnet.fr is a research project born from the desire to adapt GrippeNet.fr to the current context of the COVID-19 epidemic.\\nThe GrippeNet.fr study   was set up in January 2012 by the Sentinelles network (Inserm &ndash; Sorbonne University) and Public Health France (formerly Institut de Veille Sanitaire). On March 30, 2020, GrippeNet.fr became GrippeNet.fr/COVIDnet.fr. This surveillance and research project aims to collect epidemiological data on influenza and COVID-19 directly from the population, via the  Internet and  anonymously  . The GrippeNet.fr/COVIDnet.fr project is funded by Public Health France. It does not receive any private funding.\\nUnlike traditional surveillance methods, GrippeNet.fr/COVIDnet.fr collects its data  directly from the population residing in mainland France , without going through hospitals or doctors. In fact, some people with mild symptoms do not consult the healthcare system and are therefore not counted by traditional surveillance methods. In addition, it is important to know the characteristics of sick people and their behavior, the feelings and experiences of the population (sick or not) at the different stages of an epidemic.\\nEvery week, participants report any  symptoms  they may have had since their last connection. In exchange, we inform participants of the results of the study and give them news on the flu, COVID-19, as well as the situation of these diseases in France.&quot;}\" data-sheets-userformat=\"{&quot;2&quot;:4747,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:{&quot;1&quot;:2,&quot;2&quot;:16777215},&quot;6&quot;:{&quot;1&quot;:[{&quot;1&quot;:2,&quot;2&quot;:0,&quot;5&quot;:{&quot;1&quot;:2,&quot;2&quot;:0}},{&quot;1&quot;:0,&quot;2&quot;:0,&quot;3&quot;:3},{&quot;1&quot;:1,&quot;2&quot;:0,&quot;4&quot;:1}]},&quot;10&quot;:1,&quot;12&quot;:0,&quot;15&quot;:&quot;\\&quot;Helvetica Neue\\&quot;&quot;}\">GrippeNet.fr/COVIDnet.fr is a research project born from the desire to adapt GrippeNet.fr to the current context of the COVID-19 epidemic.<br>The GrippeNet.fr study was set up in January 2012 by the Sentinelles network (Inserm &ndash; Sorbonne University) and Public Health France (formerly Institut de Veille Sanitaire). On March 30, 2020, GrippeNet.fr became GrippeNet.fr/COVIDnet.fr. This surveillance and research project aims to collect epidemiological data on influenza and COVID-19 directly from the population, via the Internet and anonymously . The GrippeNet.fr/COVIDnet.fr project is funded by Public Health France. It does not receive any private funding.<br>Unlike traditional surveillance methods, GrippeNet.fr/COVIDnet.fr collects its data directly from the population residing in mainland France , without going through hospitals or doctors. In fact, some people with mild symptoms do not consult the healthcare system and are therefore not counted by traditional surveillance methods. In addition, it is important to know the characteristics of sick people and their behavior, the feelings and experiences of the population (sick or not) at the different stages of an epidemic.<br>Every week, participants report any symptoms they may have had since their last connection. In exchange, we inform participants of the results of the study and give them news on the flu, COVID-19, as well as the situation of these diseases in France.</span></p>"
+  },
+  {
+    "id": 12,
+    "name": "Infectieradar",
+    "website": "https://survey.infectieradar.be/",
+    "filePrefix": "BE",
+    "hidden": false,
+    "order": 180,
+    "countryId": 12,
+    "logo": {
+      "key": "logo/platform//Infectieradar_belgium_logo.png",
+      "mime": "image/png",
+      "size": "12722",
+      "bucket": "/app/assets/upload",
+      "filename": "Infectieradar_belgium_logo.png"
+    },
+    "websiteJoinLink": null,
+    "about": null,
+    "description": "<p>People who have registered as participants in Infectieradar report once a week to Infectieradar whether they have had a fever or other symptoms in the past week. This allows us to monitor how health complaints are distributed in Belgium and how the situation develops over time. We can use this data for scientific research into the spread of the new coronavirus. Infectieradar.be is part of Influenzanet, a European partnership between various universities and government agencies. Hasselt University is part of this partnership.</p>"
+  },
+  {
+    "id": 13,
+    "name": "Hälsorapport",
+    "website": "https://www.halsorapport.se/sv/",
+    "filePrefix": "SE",
+    "hidden": false,
+    "order": 100,
+    "countryId": 11,
+    "logo": {
+      "key": "logo/platform/halsorapport_sweden_logo.png",
+      "mime": "image/png",
+      "size": "7931",
+      "bucket": "/app/assets/upload",
+      "filename": "halsorapport_sweden_logo.png"
+    },
+    "websiteJoinLink": "https://www.halsorapport.se/accounts/register/",
+    "about": null,
+    "description": "<p>H&auml;lsorapport is the Public Health Agency's own web panel with selected people throughout Sweden. The aim is to obtain current knowledge about the population's health and views on health. Health report has been running since 2015.</p>"
+  }
+]

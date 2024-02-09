@@ -1,0 +1,95 @@
+{
+  "name": "api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api/src",
+  "projectType": "application",
+  "targets": {
+    "build-app": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/api",
+        "main": "apps/api/src/main.ts",
+        "tsConfig": "apps/api/tsconfig.app.json",
+        "assets": ["apps/api/src/example-data", "apps/api/src/assets"],
+        "deleteOutputPath": false,
+        "webpackConfig": "apps/api/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/api/src/environments/environment.ts",
+              "with": "apps/api/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "inspect": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "cp -rT docker/production/ dist/docker",
+          "cp -rT apps/api/src/assets/data dist/data",
+          "cp package.json dist/apps/api/package.json",
+          "cp package-lock.json dist/apps/api/package-lock.json",
+          "cp decorate-angular-cli.js dist/apps/api/decorate-angular-cli.js"
+        ]
+      },
+      "dependsOn": ["build-app"]
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "api:build-app",
+        "port": 9230
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "api:build-app:development"
+        },
+        "production": {
+          "buildTarget": "api:build-app:production"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/apps/api"],
+      "options": {
+        "jestConfig": "apps/api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "typeorm": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "commands": [
+          "ts-node --project ./apps/api/tsconfig.app.json -r tsconfig-paths/register ./node_modules/typeorm/cli"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

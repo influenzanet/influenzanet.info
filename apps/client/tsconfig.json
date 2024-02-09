@@ -23,7 +23,9 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "typeorm": ["apps/shared/polyfill/typeorm-model-shim.js"],
-      "@models/*": ["apps/shared/models/*"]
+      "@models/*": ["apps/shared/models/*"],
+      "@src/*": ["apps/client/src/*"],
+      "@app/*": ["apps/client/src/app/*"]
     }
   },
   "angularCompilerOptions": {

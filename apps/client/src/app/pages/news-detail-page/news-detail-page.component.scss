@@ -1,0 +1,30 @@
+@import "theme-variables";
+@import "global";
+
+:host{
+  @extend .mb-2;
+
+  .title {
+    @extend .space-x;
+    @extend .tb-4;
+    @extend .font-xxl;
+    @extend .roboto;
+    @extend .color-main;
+    @extend .letter-spacing-m;
+    font-weight: bold!important;
+  }
+
+  .date{
+    @extend .mb-2;
+    color: #979d9d;
+    font-weight: bold;
+  }
+
+  .link {
+    font-size: large;
+    font-weight: 400;
+    color: #00AB9F;
+  }
+
+}
+

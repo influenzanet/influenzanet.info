@@ -1,29 +1,23 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { APP_ID, NgModule } from "@angular/core";
+import { AppComponent } from "./app.component";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+import { AppRoutingModule } from "./app-routing.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MainFooterComponent } from "./layout/main-footer/main-footer.component";
+import { PageTitleComponent } from "./layout/partials/page-title/page-title.component";
+import { BackToTopComponent } from "./layout/partials/back-to-top/back-to-top.component";
+import { MainNavigationComponent } from "./layout/main-navigation/main-navigation.component";
+import { CommonModule } from "@angular/common";
+import { MatSelectModule } from "@angular/material/select";
 
-import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import {RouterModule} from '@angular/router';
-import {AppRoutingModule} from './app-routing.module';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MainFooterComponent} from './layout/main-footer/main-footer.component';
-import {PageTitleComponent} from './layout/partials/page-title/page-title.component';
-import {BackToTopComponent} from './layout/partials/back-to-top/back-to-top.component';
-
-import {ExploreDataPageModule} from './pages/explore-data-page/explore-data-page.module';
-import {AboutDataPageModule} from './pages/about-data-page/about-data-page.module';
-import {ProjectPageModule} from './pages/project-page/project-page.module';
-import {TeamPageModule} from './pages/team-page/team-page.module';
-import {PublicationsPageModule} from './pages/publications-page/publications-page.module';
-import {MainNavigationComponent} from "./layout/main-navigation/main-navigation.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    NoopAnimationsModule,
+    CommonModule,
+    // NoopAnimationsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     RouterModule,
     // Partial & Layout
@@ -31,16 +25,11 @@ import {MainNavigationComponent} from "./layout/main-navigation/main-navigation.
     MainFooterComponent,
     PageTitleComponent,
     BackToTopComponent,
-    // Pages
-    ExploreDataPageModule,
-    ProjectPageModule,
-    PublicationsPageModule,
-    TeamPageModule,
-    AboutDataPageModule,
-    // Manatain as last import
+    MatSelectModule,
+    // Mantain as last import
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [{ provide: APP_ID, useValue: "serverApp" }, ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

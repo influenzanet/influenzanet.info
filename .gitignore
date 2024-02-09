@@ -47,24 +47,32 @@ dist/docker/.env
 apps/server/src/assets/data/**
 !apps/server/src/assets/data/**/
 
-dist/apps/server/assets/data/**
-!dist/apps/server/assets/data/**/
+dist/apps/api/assets/data/**
+!dist/apps/api/assets/data/**/
 
-dist/data/**
-!dist/data/**/
+# Ignore Data directory
+/dist/data/**
+!dist/data/.gitkeep
+!dist/data
 
-# Ignore Upload directory
-apps/server/src/assets/upload/**
-!apps/server/src/assets/upload/**/
-
-dist/apps/server/assets/upload/**
-!dist/apps/server/assets/upload/**/
+# Ignore Upload Logo directory
+**/upload/**
+!**/upload
+!**/upload/.gitkeep
+!**/upload/logo
 
 # Add Mysql dump dir
 !dist/data/mysql/
 !dist/data/mysql/**
 !dist/data/mysql/**/
 
+!dist/data/img/
+!dist/data/img/**
+!dist/data/img/**/
+
+!dist/data/platform-data/
+
 # Mantain .gitkeep files
 !**/.gitkeep
 
+.nx/

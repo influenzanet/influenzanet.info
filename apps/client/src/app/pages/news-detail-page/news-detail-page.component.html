@@ -1,0 +1,20 @@
+<ng-container *ngIf="news">
+  <section>
+    <div class="title">
+      <span *ngIf="news.tag?.label">{{ news.tag.label }} | </span>
+      <span>{{news.title}}</span>
+    </div>
+  </section>
+
+  <section class="space-x t-0 b-6">
+    <quarter-grid>
+      <div title class="link">
+        <p routerLink="/news">< Go to all News</p>
+      </div>
+      <div description>
+        <p class="date"> {{ news.publicationDate | date:'mediumDate'}}</p>
+        <p *ngIf="news.content" [innerHTML]="news.content | TrustHtml"></p>
+      </div>
+    </quarter-grid>
+  </section>
+</ng-container>

@@ -1,17 +1,1 @@
-@import 'theme-variables';
-@import 'global';
 
-:host{
-  @extend .space-x;
-  @extend .tb-4;
-  & > *{
-    @extend .font-xxl;
-    @extend .roboto;
-    @extend .color-main;
-    @extend .letter-spacing-m;
-    font-weight: bold!important;
-    &:first-letter{
-      text-transform: uppercase;
-    }
-  }
-}

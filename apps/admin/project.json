@@ -1,0 +1,66 @@
+{
+  "name": "admin",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/admin/src",
+  "projectType": "application",
+  "targets": {
+    "build-app": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/admin",
+        "main": "apps/admin/src/main.ts",
+        "tsConfig": "apps/admin/tsconfig.app.json",
+        "assets": ["apps/admin/src/assets", "apps/admin/src/components"],
+        "webpackConfig": "apps/admin/webpack.config.cjs",
+        "deleteOutputPath": false
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "cp package.json dist/apps/admin/package.json",
+          "cp package-lock.json dist/apps/admin/package-lock.json",
+          "cp decorate-angular-cli.js dist/apps/admin/decorate-angular-cli.js"
+        ]
+      },
+      "dependsOn": ["build-app"]
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "admin:build-app",
+        "port": 9231
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "admin:build-app:development"
+        },
+        "production": {
+          "buildTarget": "admin:build-app:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/admin/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

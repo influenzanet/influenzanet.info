@@ -10,8 +10,7 @@ section.call-to-action{
   //@extend .t-5;
   @extend .t-3;
   @extend .b-3;
-
-  background-image: url('/assets/img/background/background_row.png');
+  background-color: $color-base-light;
   background-repeat: repeat-x;
   background-position: center;
   //background-size: 100% auto;

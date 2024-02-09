@@ -1,4 +1,5 @@
 {
+  "name": "client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/client/src",
@@ -6,9 +7,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/client/",
         "index": "apps/client/src/index.html",
@@ -18,7 +17,7 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/client/src/favicon.ico",
-          "apps/client/src/assets"
+          {"glob": "**/*", "input": "apps/client/src/assets", "ignore": ["**/upload/*"], "output": "/assets" }
         ],
         "styles": [
           "apps/client/src/styles.scss",
@@ -26,11 +25,10 @@
           "node_modules/swiper/swiper-bundle.css"
         ],
         "stylePreprocessorOptions": {
-          "includePaths": [
-            "apps/client/src/theme"
-          ]
+          "includePaths": ["apps/client/src/theme"]
         },
-        "scripts": []
+        "scripts": [],
+        "allowedCommonJsDependencies": ["lodash", "c3", "typeorm", "moment"]
       },
       "configurations": {
         "production": {
@@ -38,7 +36,7 @@
             {
               "type": "initial",
               "maximumWarning": "1mb",
-              "maximumError": "2mb"
+              "maximumError": "10mb"
             },
             {
               "type": "anyComponentStyle",
@@ -69,10 +67,11 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "client:build:production"
+          "buildTarget": "client:build:production"
         },
         "development": {
-          "browserTarget": "client:build:development"
+          "buildTarget": "client:build:development",
+          "disableHostCheck": true
         }
       },
       "defaultConfiguration": "development",
@@ -83,23 +82,18 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "client:build"
+        "buildTarget": "client:build"
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": [
-          "apps/client/**/*.ts",
-          "apps/client/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/client/**/*.ts", "apps/client/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/client"
-      ],
+      "executor": "@nx/jest:jest",
+      "outputs": ["coverage/apps/client"],
       "options": {
         "jestConfig": "apps/client/jest.config.ts",
         "passWithNoTests": true
@@ -138,11 +132,11 @@
       },
       "configurations": {
         "production": {
-          "browserTarget": "client:build:production",
+          "buildTarget": "client:build:production",
           "serverTarget": "client:server:production"
         },
         "development": {
-          "browserTarget": "client:build:development",
+          "buildTarget": "client:build:development",
           "serverTarget": "client:server:development"
         }
       },

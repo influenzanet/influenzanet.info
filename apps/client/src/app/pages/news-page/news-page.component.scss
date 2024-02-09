@@ -1,0 +1,20 @@
+@import "theme-variables";
+@import "global";
+
+section.content{
+  @extend .space-x;
+  @extend .b-3;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+
+  @media all and (max-width: $mobile-menu-break) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .description{
+    @extend .b-3;
+    margin-top: 0.5rem;
+  }
+}
+

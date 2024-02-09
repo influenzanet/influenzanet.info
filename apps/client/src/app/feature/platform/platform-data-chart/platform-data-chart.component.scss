@@ -13,24 +13,21 @@
 
   .chart-container{
     position:relative;
-    padding-bottom: 60%;
+    aspect-ratio: 16/9;
 
     .chart, .nodata{
-      @extend .tb-0;
-      @extend .lr-0;
-      position:absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
+      @extend .cover;
       background: white;
-      //box-shadow: 0 0 4px 5px rgba(0,0,0,0.01)
       @media all and (max-width: $mobile-space-break){ padding-left:0; padding-right: 0; padding-bottom: 0;}
-
     }
     .nodata{
+      background: darken($color-base-accent, 2%);
       @extend .color-base-accent-dark;
-      //border: solid 1px #efefef;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -38,11 +35,13 @@
   }
 
   ::ng-deep .c3{
-    height: 100%; width: 100%;
-    max-height:100% !important;
-    svg{
+    @extend .cover;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    .svg-chart{
+      @extend .cover;
       .domain{ opacity: 0; }
-
       .c3-line{ stroke-width:2px; }
 
       path.c3-area-min {
@@ -79,9 +78,10 @@
 
   }
 
-  .hidden{ display: none!important; }
+  .hidden{
+    display: none!important;
+  }
   ::ng-deep .mat-mdc-form-field-bottom-align{
     height: 0;
   }
-
 }

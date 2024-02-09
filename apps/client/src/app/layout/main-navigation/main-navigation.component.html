@@ -1,5 +1,4 @@
-<nav [ngClass]="{'is-sticky': isSticky}">
-
+<nav #mainNavigation>
   <div class="nav-content">
     <div class="left">
       <img
@@ -11,10 +10,14 @@
     </div>
 
     <div class="right" [ngClass]="{ 'is-open': isOpen }">
+      <span routerLink="/home" routerLinkActive="active" class="link">Home</span>
       <span routerLink="/explore-data" routerLinkActive="active" class="link">Explore our data</span>
       <span routerLink="/project" routerLinkActive="active" class="link">The project</span>
       <span routerLink="/about-data" routerLinkActive="active" class="link">About our data</span>
+      <span routerLink="/team" routerLinkActive="active" class="link">Our Team</span>
       <span routerLink="/publications" routerLinkActive="active" class="link">Publications</span>
+      <span routerLink="/news" routerLinkActive="active" class="link">News</span>
+
     </div>
 
     <div class="hamburger" (click)="toggleOpen()">

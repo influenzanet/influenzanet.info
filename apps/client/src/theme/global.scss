@@ -1,4 +1,7 @@
+@use 'sass:math';
 @import "theme-variables";
+
+
 /*
 * LAYOUT
 */
@@ -15,11 +18,24 @@
   @extend .space-lx;
 }
 
+.space-x-none{
+  padding-left:0; padding-right:0;
+}
+
 .space-Y21{
   @extend .t-3;
   @extend .b-2;
 }
 
+.cover{
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  min-width: 100% !important;
+  max-height: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
 
 /*
 * TYPOGRAPHY
@@ -33,6 +49,14 @@ a.link{ color:$color-accent; }
 
 .anchor{
   @extend .link;
+  text-decoration: underline;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.underline{
   text-decoration: underline;
 }
 
@@ -59,9 +83,10 @@ a.link{ color:$color-accent; }
   &:hover {
     opacity: 0.95;
   }
+
   &.inverted{
     border-color: $color-accent;
-    background-color: white;
+    background-color: rgba(0,0,0,0)!important;
     color: $color-accent;
   }
 
@@ -72,24 +97,44 @@ a.link{ color:$color-accent; }
   }
 }
 
+a.button{
+  text-decoration: none;
+  display: inline-flex;
+}
+
 
 .about-section{
   @extend .space-x;
   @extend .b-4;
 }
 
+
+.bold{
+  font-weight: bold;
+}
+
+.title{
+  @extend .font-xxl;
+  @extend .color-main;
+  @extend .bold;
+}
+
 .subtitle{
   @extend .font-xl;
   @extend .color-main;
-  font-weight: 500;
+  @extend .bold;
 }
 
-
+// VISIBILITY
 .mobile-hidden{
-  @media all and (max-width: $mobile-space-break){ display: none; }
+  @media all and (max-width: $mobile-space-break){ display: none!important; }
 }
 .desktop-hidden{
-  @media all and (min-width: $mobile-space-break){ display: none; }
+  @media all and (min-width: $mobile-space-break){ display: none!important; }
+}
+
+.transparent{
+  opacity: 0;
 }
 
 // FORMS
@@ -148,5 +193,32 @@ mat-form-field{
   }
   .mdc-list-item--selected .mdc-list-item__primary-text{
     color: $color-accent!important;
+  }
+}
+
+.page-title-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: $space-small-value+ $space-small-unit;
+  row-gap: $space-small-value+ $space-small-unit;
+
+  @media all and (max-width: ($mobile-space-break-value *1.5) + $mobile-space-break-unit) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  @media all and (max-width: $mobile-space-break-value+ $mobile-space-break-unit) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media all and (max-width: math.div($mobile-space-break-value, 1.5) + $mobile-space-break-unit) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media all and (max-width: math.div($mobile-space-break-value, 2) + $mobile-space-break-unit) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }

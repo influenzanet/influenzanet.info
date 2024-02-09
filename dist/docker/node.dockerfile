@@ -1,11 +1,25 @@
-FROM node:16.13.0 as development-init
+FROM node:18.16.0-alpine as development-init
 
 # COPY mininmal requiremente to run npm install
 WORKDIR /app/
-COPY ./apps/server/package.json /app/package.json
-COPY ./apps/server/package-lock.json /app/package-lock.json
-COPY ./apps/server/decorate-angular-cli.js /app/decorate-angular-cli.js
+COPY ./apps/api/package.json /app/package.json
+COPY ./apps/api/package-lock.json[t] /app/package-lock.json
+COPY ./apps/api/decorate-angular-cli.js /app/decorate-angular-cli.js
+
+# Install system dependencies
+RUN apk --no-cache add \
+    python3 \
+    make \
+    g++
 
 # Install
-RUN npm ci
+RUN npm install --legacy-peer-deps
+
+RUN echo '#! /bin/sh' >> /bin/ll
+RUN echo 'ls -halp'   >> /bin/ll
+RUN chmod u+x /bin/ll
+
+RUN echo '#! /bin/sh'                                                 >> /bin/migration
+RUN echo 'export IS_CLI="true" && node /app/main.js migration:"$@"'    >> /bin/migration
+RUN chmod u+x /bin/migration
 

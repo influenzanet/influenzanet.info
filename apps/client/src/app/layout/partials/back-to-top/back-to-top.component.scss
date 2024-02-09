@@ -9,6 +9,8 @@
   width: min-content;
   white-space: nowrap;
   z-index:100;
+  padding-bottom: 1rem;
+
   @extend .space-rx;
 
   .back-to-top-button{
@@ -20,11 +22,12 @@
     justify-content: center;
     align-items: center;
 
+
     width: $button-size;
     height: $button-size;
     background-color: $color-accent;
     color: white;
-    margin-bottom: 1rem;
+    //margin-bottom: 1rem;
     padding:0;
 
     & > *{
