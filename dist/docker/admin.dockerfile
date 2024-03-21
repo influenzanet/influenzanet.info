@@ -1,9 +1,8 @@
-FROM node:18.16.0-alpine as development-init
+FROM node:18.18.0-alpine as development-init
 
 # COPY mininmal requiremente to run npm install
 WORKDIR /app/
 COPY ./apps/admin/package.json /app/package.json
-COPY ./apps/admin/package-lock.json[t] /app/package-lock.json
 COPY ./apps/admin/decorate-angular-cli.js /app/decorate-angular-cli.js
 
 # Install system dependencies
