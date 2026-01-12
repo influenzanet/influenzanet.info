@@ -1,6 +1,6 @@
 import session from "express-session";
 import MySQLSessionStore from "express-mysql-session";
-import * as sessionModule from "express-session";
+import sessionModule from "express-session";
 const store = MySQLSessionStore(sessionModule);
 
 

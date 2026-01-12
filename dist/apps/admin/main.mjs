@@ -7,7 +7,8 @@ import * as __WEBPACK_EXTERNAL_MODULE_adminjs__ from "adminjs";
 import * as __WEBPACK_EXTERNAL_MODULE__adminjs_express_eb1684de__ from "@adminjs/express";
 import * as __WEBPACK_EXTERNAL_MODULE_express__ from "express";
 import * as __WEBPACK_EXTERNAL_MODULE__adminjs_typeorm_691da027__ from "@adminjs/typeorm";
-import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "module";
+import { createRequire as __WEBPACK_EXTERNAL_createRequire } from "node:module";
+const __WEBPACK_EXTERNAL_createRequire_require = __WEBPACK_EXTERNAL_createRequire(import.meta.url);
 import * as __WEBPACK_EXTERNAL_MODULE__adminjs_upload_c494aec7__ from "@adminjs/upload";
 import * as __WEBPACK_EXTERNAL_MODULE_fs_extra_e95eee4a__ from "fs-extra";
 import * as __WEBPACK_EXTERNAL_MODULE_express_mysql_session_3dcff3af__ from "express-mysql-session";
@@ -17,8 +18,6 @@ import * as __WEBPACK_EXTERNAL_MODULE_express_session_d2460649__ from "express-s
 /* 1 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
@@ -26,6 +25,8 @@ __webpack_require__.d(__webpack_exports__, {
   GraphDataFeatureIndexed: () => (/* binding */ GraphDataFeatureIndexed),
   Platform: () => (/* binding */ Platform)
 });
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: external "tslib"
 var external_tslib_ = __webpack_require__(2);
@@ -33,11 +34,9 @@ var external_tslib_ = __webpack_require__(2);
 var external_typeorm_ = __webpack_require__(3);
 // EXTERNAL MODULE: ../shared/models/Country.ts
 var Country = __webpack_require__(4);
-;// CONCATENATED MODULE: external "moment"
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
+;// external "moment"
 const external_moment_namespaceObject = __WEBPACK_EXTERNAL_MODULE_moment__;
-;// CONCATENATED MODULE: ../shared/models/PlatformData.ts
+;// ../shared/models/PlatformData.ts
 
 class PlatformFeature {
     constructor(data) {
@@ -141,12 +140,10 @@ class PlatformDataVisitsCumulated extends PlatformFeature {
 }
 
 // EXTERNAL MODULE: ../shared/models/UploadedFile.ts
-var UploadedFile = __webpack_require__(5);
-;// CONCATENATED MODULE: external "class-transformer"
-var external_class_transformer_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var external_class_transformer_y = x => () => x
+var UploadedFile = __webpack_require__(6);
+;// external "class-transformer"
 const external_class_transformer_namespaceObject = __WEBPACK_EXTERNAL_MODULE_class_transformer_c5a479fb__;
-;// CONCATENATED MODULE: ../shared/models/Platform.ts
+;// ../shared/models/Platform.ts
 var _a, _b, _c, _d, _e;
 
 
@@ -238,7 +235,7 @@ let Platform = class Platform extends external_typeorm_.BaseEntity {
     (0,external_tslib_.__metadata)("design:type", Number)
 ], Platform.prototype, "countryId", void 0);
 (0,external_tslib_.__decorate)([
-    (0,external_class_transformer_namespaceObject.Type)(() => (__webpack_require__(6).Partner)),
+    (0,external_class_transformer_namespaceObject.Type)(() => (__webpack_require__(5).Partner)),
     (0,external_typeorm_.OneToMany)('partner', 'platform'),
     (0,external_tslib_.__metadata)("design:type", Array)
 ], Platform.prototype, "partners", void 0);
@@ -267,16 +264,12 @@ class GraphData {
 /* 2 */
 /***/ ((module) => {
 
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
 module.exports = __WEBPACK_EXTERNAL_MODULE_tslib__;
 
 /***/ }),
 /* 3 */
 /***/ ((module) => {
 
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
 module.exports = __WEBPACK_EXTERNAL_MODULE_typeorm__;
 
 /***/ }),
@@ -332,29 +325,12 @@ Country = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UploadedFile: () => (/* binding */ UploadedFile)
-/* harmony export */ });
-class UploadedFile {
-    key;
-    mime;
-    size;
-    bucket;
-    filename;
-}
-
-
-/***/ }),
-/* 6 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Partner: () => (/* binding */ Partner)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var _Platform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
-/* harmony import */ var _models_UploadedFile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5);
+/* harmony import */ var _models_UploadedFile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 var _a, _b, _c;
 
 
@@ -416,6 +392,23 @@ Partner = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
     (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__metadata)("design:paramtypes", [typeof (_a = typeof Partial !== "undefined" && Partial) === "function" ? _a : Object])
 ], Partner);
 
+
+
+/***/ }),
+/* 6 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   UploadedFile: () => (/* binding */ UploadedFile)
+/* harmony export */ });
+class UploadedFile {
+    key;
+    mime;
+    size;
+    bucket;
+    filename;
+}
 
 
 /***/ })
@@ -488,32 +481,20 @@ Partner = (0,tslib__WEBPACK_IMPORTED_MODULE_0__.__decorate)([
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
 
-;// CONCATENATED MODULE: external "reflect-metadata"
-var x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var y = x => () => x
+;// external "reflect-metadata"
 const external_reflect_metadata_namespaceObject = __WEBPACK_EXTERNAL_MODULE_reflect_metadata_121e451c__;
-;// CONCATENATED MODULE: external "adminjs"
-var external_adminjs_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var external_adminjs_y = x => () => x
+;// external "adminjs"
 const external_adminjs_namespaceObject = __WEBPACK_EXTERNAL_MODULE_adminjs__;
-;// CONCATENATED MODULE: external "@adminjs/express"
-var express_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var express_y = x => () => x
+;// external "@adminjs/express"
 const express_namespaceObject = __WEBPACK_EXTERNAL_MODULE__adminjs_express_eb1684de__;
-;// CONCATENATED MODULE: external "express"
-var external_express_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var external_express_y = x => () => x
+;// external "express"
 const external_express_namespaceObject = __WEBPACK_EXTERNAL_MODULE_express__;
-;// CONCATENATED MODULE: external "@adminjs/typeorm"
-var typeorm_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var typeorm_y = x => () => x
+;// external "@adminjs/typeorm"
 const typeorm_namespaceObject = __WEBPACK_EXTERNAL_MODULE__adminjs_typeorm_691da027__;
-;// CONCATENATED MODULE: ./src/components/component-loader.ts
+;// ./src/components/component-loader.ts
 
 const componentLoader = new external_adminjs_namespaceObject.ComponentLoader();
 const CustomComponents = {
@@ -525,10 +506,10 @@ const CustomComponents = {
 
 // EXTERNAL MODULE: ../shared/models/Platform.ts + 3 modules
 var Platform = __webpack_require__(1);
-;// CONCATENATED MODULE: external "path"
-const external_path_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("path");
+;// external "path"
+const external_path_namespaceObject = __WEBPACK_EXTERNAL_createRequire_require("path");
 var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_namespaceObject);
-;// CONCATENATED MODULE: ./src/models/validators/required.ts
+;// ./src/models/validators/required.ts
 
 const required = async (request, context) => {
     const payload = request.payload;
@@ -552,7 +533,7 @@ const required = async (request, context) => {
     }, {});
 };
 
-;// CONCATENATED MODULE: ./src/models/validators/unique.ts
+;// ./src/models/validators/unique.ts
 
 const unique = async (request, context) => {
     // Only check for actions that require unique validation
@@ -584,7 +565,7 @@ const unique = async (request, context) => {
     return errors;
 };
 
-;// CONCATENATED MODULE: ./src/models/validators/validate.ts
+;// ./src/models/validators/validate.ts
 
 
 
@@ -600,17 +581,13 @@ const validate = async (request, context) => {
         return request;
 };
 
-;// CONCATENATED MODULE: external "@adminjs/upload"
-var upload_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var upload_y = x => () => x
+;// external "@adminjs/upload"
 const upload_namespaceObject = __WEBPACK_EXTERNAL_MODULE__adminjs_upload_c494aec7__;
-;// CONCATENATED MODULE: external "fs"
-const external_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
-;// CONCATENATED MODULE: external "fs-extra"
-var external_fs_extra_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var external_fs_extra_y = x => () => x
+;// external "fs"
+const external_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire_require("fs");
+;// external "fs-extra"
 const external_fs_extra_namespaceObject = __WEBPACK_EXTERNAL_MODULE_fs_extra_e95eee4a__;
-;// CONCATENATED MODULE: ./src/logger.ts
+;// ./src/logger.ts
 class Logger {
     log(message) {
         console.log(`${'\x1b[32m'}[AdminJS]${'\x1b[0m'} - ${this.timeStamp()} - ${'\x1b[32m'}${message}`, '\x1b[0m');
@@ -631,7 +608,7 @@ class Logger {
 }
 const logger = new Logger();
 
-;// CONCATENATED MODULE: ./src/provider/UploadLocalProvider.ts
+;// ./src/provider/UploadLocalProvider.ts
 
 
 
@@ -678,19 +655,19 @@ class UploadLocalProvider extends upload_namespaceObject.BaseProvider {
     }
 }
 
-;// CONCATENATED MODULE: ./src/__dirname.ts
+;// ./src/__dirname.ts
 
 const _dirname_dirname = process.env.NODE_ENV === 'development'
     ? '/app/dist/apps/admin'
     : external_path_default().resolve();
 
-;// CONCATENATED MODULE: ./src/models/helpers/helpers.ts
+;// ./src/models/helpers/helpers.ts
 const elementsPerPage = async (request, context) => {
     request.query.perPage = 100;
     return request;
 };
 
-;// CONCATENATED MODULE: ./src/models/PlatformAdmin.ts
+;// ./src/models/PlatformAdmin.ts
 
 
 
@@ -803,7 +780,7 @@ const PlatformAdmin = {
 
 // EXTERNAL MODULE: ../shared/models/Country.ts
 var Country = __webpack_require__(4);
-;// CONCATENATED MODULE: ./src/models/CountryAdmin.ts
+;// ./src/models/CountryAdmin.ts
 
 
 
@@ -837,8 +814,8 @@ const CountryAdmin = {
 };
 
 // EXTERNAL MODULE: ../shared/models/Partner.ts
-var Partner = __webpack_require__(6);
-;// CONCATENATED MODULE: ./src/models/PartnerAdmin.ts
+var Partner = __webpack_require__(5);
+;// ./src/models/PartnerAdmin.ts
 // import {ResourceWithOptions} from "adminjs/types/src/adminjs-options.interface";
 
 
@@ -933,7 +910,7 @@ const PartnerAdmin = {
 var external_tslib_ = __webpack_require__(2);
 // EXTERNAL MODULE: external "typeorm"
 var external_typeorm_ = __webpack_require__(3);
-;// CONCATENATED MODULE: ../shared/models/Publication.ts
+;// ../shared/models/Publication.ts
 
 
 let Publication = class Publication extends external_typeorm_.BaseEntity {
@@ -980,7 +957,7 @@ Publication = (0,external_tslib_.__decorate)([
 ], Publication);
 
 
-;// CONCATENATED MODULE: ./src/models/PublicationAdmin.ts
+;// ./src/models/PublicationAdmin.ts
 // import {ResourceWithOptions} from "adminjs/types/src/adminjs-options.interface";
 
 
@@ -1027,7 +1004,7 @@ const PublicationAdmin = {
     },
 };
 
-;// CONCATENATED MODULE: ../shared/models/Tag.ts
+;// ../shared/models/Tag.ts
 
 
 let Tag = class Tag extends external_typeorm_.BaseEntity {
@@ -1053,7 +1030,7 @@ Tag = (0,external_tslib_.__decorate)([
 ], Tag);
 
 
-;// CONCATENATED MODULE: ../shared/models/News.ts
+;// ../shared/models/News.ts
 var _a;
 
 
@@ -1103,7 +1080,7 @@ News = (0,external_tslib_.__decorate)([
 ], News);
 
 
-;// CONCATENATED MODULE: ./src/models/NewsAdmin.ts
+;// ./src/models/NewsAdmin.ts
 
 
 
@@ -1155,7 +1132,7 @@ const NewsAdmin = {
     },
 };
 
-;// CONCATENATED MODULE: ./src/models/TagAdmin.ts
+;// ./src/models/TagAdmin.ts
 
 
 
@@ -1188,7 +1165,7 @@ const TagAdmin = {
     },
 };
 
-;// CONCATENATED MODULE: ./src/i18n/en.ts
+;// ./src/i18n/en.ts
 const en = {
     labels: {},
     resources: {
@@ -1222,7 +1199,7 @@ const en = {
     }
 };
 
-;// CONCATENATED MODULE: ./src/themes/influenzaNet.ts
+;// ./src/themes/influenzaNet.ts
 const colorMain = '#003556';
 // const colorAccent = '#00AB9F';
 // const colorAccent = '#008a80';
@@ -1245,7 +1222,7 @@ const influenzaNet = {
     }
 };
 
-;// CONCATENATED MODULE: ./src/config/admin.ts
+;// ./src/config/admin.ts
 
 
 
@@ -1289,7 +1266,7 @@ const adminConfiguration = {
     availableThemes: [influenzaNet],
 };
 
-;// CONCATENATED MODULE: ./src/config/database.ts
+;// ./src/config/database.ts
 
 
 
@@ -1317,7 +1294,7 @@ const databaseConfiguration = {
     synchronize: false
 };
 
-;// CONCATENATED MODULE: ./src/config/authentication.ts
+;// ./src/config/authentication.ts
 const authenticationOptions = {
     authenticate: async (email, password) => {
         const adminUser = process.env.ADMIN_USER;
@@ -1330,18 +1307,14 @@ const authenticationOptions = {
     cookiePassword: 'sessionsecret',
 };
 
-;// CONCATENATED MODULE: external "express-mysql-session"
-var external_express_mysql_session_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var external_express_mysql_session_y = x => () => x
+;// external "express-mysql-session"
 const external_express_mysql_session_namespaceObject = __WEBPACK_EXTERNAL_MODULE_express_mysql_session_3dcff3af__;
-;// CONCATENATED MODULE: external "express-session"
-var external_express_session_x = y => { var x = {}; __webpack_require__.d(x, y); return x; }
-var external_express_session_y = x => () => x
+;// external "express-session"
 const external_express_session_namespaceObject = __WEBPACK_EXTERNAL_MODULE_express_session_d2460649__;
-;// CONCATENATED MODULE: ./src/config/session.ts
+;// ./src/config/session.ts
 
 
-const store = (0,external_express_mysql_session_namespaceObject["default"])(external_express_session_namespaceObject);
+const store = (0,external_express_mysql_session_namespaceObject["default"])(external_express_session_namespaceObject["default"]);
 const sessionOptions = {
     store: new store({
         host: process.env.MYSQL_HOST,
@@ -1356,7 +1329,7 @@ const sessionOptions = {
     resave: true
 };
 
-;// CONCATENATED MODULE: ./src/main.ts
+;// ./src/main.ts
 
 
 

@@ -1,64 +1,19 @@
 {
+  "name": "shared",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/shared/src",
-  "projectType": "application",
+  "projectType": "library",
+  "sourceRoot": "apps/shared",
   "targets": {
-    "build": {
-      "executor": "@nrwl/webpack:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
-      "options": {
-        "target": "node",
-        "compiler": "tsc",
-        "outputPath": "dist/apps/shared",
-        "main": "apps/shared/src/main.ts",
-        "tsConfig": "apps/shared/tsconfig.app.json",
-        "assets": [
-          "apps/shared/src/assets"
-        ]
-      },
-      "configurations": {
-        "production": {
-          "optimization": true,
-          "extractLicenses": true,
-          "inspect": false,
-          "fileReplacements": [
-            {
-              "replace": "apps/shared/src/environments/environment.ts",
-              "with": "apps/shared/src/environments/environment.prod.ts"
-            }
-          ]
-        }
-      }
-    },
-    "serve": {
-      "executor": "@nrwl/js:node",
-      "options": {
-        "buildTarget": "shared:build"
-      },
-      "configurations": {
-        "production": {
-          "buildTarget": "shared:build:production"
-        }
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/shared/**/*.ts"
-        ]
+        "lintFilePatterns": ["apps/shared/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/shared"
-      ],
+      "outputs": ["coverage/apps/shared"],
       "options": {
         "jestConfig": "apps/shared/jest.config.ts",
         "passWithNoTests": true
