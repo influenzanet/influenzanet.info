@@ -3,12 +3,12 @@ import { PublicationDataProvider } from "@app/feature/publication/publication-da
 import { Publication } from "@models/Publication";
 import {
   at as _at,
-  keyBy as _keyBy,
+  compact as _compact,
+  flatten as _flatten,
+  groupBy as _groupBy,
   map as _map,
-  mapKeys as _mapKeys,
   orderBy as _orderBy,
-  sortedUniq as _sortedUniq,
-  values as _values
+  sortedUniq as _sortedUniq
 } from "lodash/fp";
 import { flow } from "lodash";
 import { CommonModule } from "@angular/common";
@@ -61,10 +61,10 @@ export class PublicationsPageComponent{
   // Publication list filtered by selected years
   public publicationListFiltered: Signal<Publication[]> = computed(()=>
     flow(
-      _keyBy('publicationDate'),
-      _mapKeys((date:string)=>this.getYear(date)),
+      _groupBy((p: Publication) => this.getYear(p.publicationDate)),
       _at(this.filteredYears()),
-      _values,
+      _compact,
+      _flatten,
     )(this.publicationList())
   )
 
